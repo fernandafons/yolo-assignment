@@ -4,6 +4,7 @@ import ReactModal from 'react-modal';
 import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
 import Button from '../Button';
 import EditModal from '../EditModal';
+import DeleteModal from '../DeleteModal';
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
@@ -11,6 +12,8 @@ import { BsTrash } from 'react-icons/bs';
 export default function Card({ item, userDashboard }) {
   // console.log(userDashboard);
   const [visible, setVisible] = useState(false);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+
   const editButton = () => {
     return (
       <BiEditAlt
@@ -37,6 +40,14 @@ export default function Card({ item, userDashboard }) {
     setVisible(false);
   }
 
+  const openDeleteModal = () => {
+    setDeleteModalVisible(true);
+  }
+
+  const closeDeleteModal = () => {
+    setDeleteModalVisible(false);
+  }
+
   const ModalStyles = {
     content: {
       top: '50%',
@@ -59,10 +70,21 @@ export default function Card({ item, userDashboard }) {
       </BoxText>
       <BoxButtons>
         <Button icon={editButton} edit={true} onClick={openModal}/>
-        <Button icon={trashButton}/>
+        <Button icon={trashButton} onClick={openDeleteModal} />
       </BoxButtons>
-      <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
+      <ReactModal 
+        isOpen={visible} 
+        onRequestClose={closeModal} 
+        style={ModalStyles}
+      >
         <EditModal item={item} userDashboard={userDashboard}/>
+      </ReactModal>
+      <ReactModal 
+        isOpen={deleteModalVisible} 
+        onRequestClose={closeDeleteModal} 
+        style={ModalStyles}
+      >
+        <DeleteModal item={item} userDashboard={userDashboard}/>
       </ReactModal>
     </Container>
   )
