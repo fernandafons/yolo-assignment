@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
-const Modal = ({title}) => {
+const Modal = ({title, userDashboard}) => {
   return (
     <Container>
       <Title>Add {title}</Title>
@@ -12,11 +12,11 @@ const Modal = ({title}) => {
           <Input />
         </BoxInput>
         <BoxInput>
-          <Text>Name: </Text>
+          <Text>{userDashboard ? 'Email: ' : 'Category: '}</Text>
           <Input />
         </BoxInput>
         <BoxInput>
-          <Text>Name: </Text>
+          <Text>{userDashboard ? 'Address: ' : 'Created_at: '}</Text>
           <Input />
         </BoxInput>
       </BoxForms>

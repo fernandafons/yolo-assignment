@@ -26,7 +26,6 @@ export const BoxDataText = styled.div`
   flex-direction: column;
   margin-left: 10px;
   justify-content: space-around;
-  /* background-color: red; */
   height: 100%;
 `;
 
@@ -40,5 +39,6 @@ export const BoxButtons = styled.div`
   display: flex;
   flex-direction: column;
   width: 50px;
-  margin-top: 10px;
+  height: 100%;
+  justify-content: center;
 `;

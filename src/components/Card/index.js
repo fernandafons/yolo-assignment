@@ -7,10 +7,11 @@ import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
 export default function Card({ item, userDashboard }) {
+  // console.log(userDashboard);
   const editButton = () => {
     return (
       <BiEditAlt
-        color="#32BD50"
+        color="white"
         size={20}
       />
     )
@@ -19,7 +20,7 @@ export default function Card({ item, userDashboard }) {
   const trashButton = () => {
     return (
       <BsTrash
-        color='white'
+        color='#32BD50'
         size={20}
       />
     )
@@ -27,7 +28,7 @@ export default function Card({ item, userDashboard }) {
   return (
     <Container>
       <BoxText>
-        <Title>{userDashboard ? item.name : item.name}</Title>
+        <Title>{item.name}</Title>
         <BoxDataText>
           <DataText>{userDashboard ? item.email : item.category}</DataText>
           <DataText>{userDashboard ? item.address : item.created_at}</DataText>

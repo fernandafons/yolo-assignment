@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
 import DashboardController from '../../components/DashboardController';
 import Dashboard from '../../components/Dashboard';
-import { games, users } from "../../data";
+import { games } from "../../data";
 
 const MainPage = () => {
   const [dashboardData, setDashboardData] = useState(games);
