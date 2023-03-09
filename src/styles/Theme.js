@@ -9,7 +9,7 @@ export const Theme = {
   sizes: {
     big: "28px",
     regular: "18px",
-    small: "16px",
+    small: "15px",
   },
 }
 

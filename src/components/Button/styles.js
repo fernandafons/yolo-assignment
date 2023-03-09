@@ -4,11 +4,11 @@ export const Container = styled.button`
   display: flex;
   height: 35px;
   width: 35px;
-  background-color: ${props => props.theme.colors.green};
+  background-color: ${({ theme, edit }) => edit ? theme.colors.blue : theme.colors.green };
+  border: 2px solid ${props => props.theme.colors.green};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  border: none;
   margin: 5px;
   
   :hover {

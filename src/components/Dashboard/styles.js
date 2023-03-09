@@ -4,13 +4,13 @@ export const Container = styled.div`
   display: flex;
   display: 1;
   flex-direction: column;
-  height: 80vh;
-  width: 30vw;
+  height: 90vh;
+  width: 350px;
   background-color: ${props => props.theme.colors.blue };
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 `;
 export const Header = styled.div`
   display: flex;
@@ -25,4 +25,20 @@ export const Title = styled.text`
   color: ${props => props.theme.colors.white};
   font-size: ${props => props.theme.sizes.big};
   font-weight: bold;
+`;
+
+export const BoxCards =  styled.div`
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  margin-top: 10px;
+  /* background-color: green ; */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar for Firefox */
 `;

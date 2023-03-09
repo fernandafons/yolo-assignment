@@ -2,10 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 110px;
-  width: 80%;
+  height: 140px;
   border-bottom: 1px solid black;
-  justify-content: space-between
+  justify-content: space-between;
+  margin: 0 20px;
+`;
+
+export const BoxText = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 `;
 
 export const Title = styled.text`
@@ -15,16 +21,13 @@ export const Title = styled.text`
   margin: 10px 0px;
 `;
 
-export const BoxText = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 10px 20px;
-`;
-
 export const BoxDataText = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 0px 20px;
+  margin-left: 10px;
+  justify-content: space-around;
+  /* background-color: red; */
+  height: 100%;
 `;
 
 export const DataText = styled.text`
@@ -37,6 +40,5 @@ export const BoxButtons = styled.div`
   display: flex;
   flex-direction: column;
   width: 50px;
-  /* background-color: green; */
   margin-top: 10px;
 `;

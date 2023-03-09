@@ -6,11 +6,11 @@ import Button from '../Button';
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
-export default function Card({ title }) {
+export default function Card({ item, userDashboard }) {
   const editButton = () => {
     return (
       <BiEditAlt
-        color='white'
+        color="#32BD50"
         size={20}
       />
     )
@@ -27,10 +27,10 @@ export default function Card({ title }) {
   return (
     <Container>
       <BoxText>
-        <Title>Name</Title>
+        <Title>{userDashboard ? item.name : item.name}</Title>
         <BoxDataText>
-          <DataText>Category</DataText>
-          <DataText>Creation Date</DataText>
+          <DataText>{userDashboard ? item.email : item.category}</DataText>
+          <DataText>{userDashboard ? item.address : item.created_at}</DataText>
         </BoxDataText>
       </BoxText>
       <BoxButtons>

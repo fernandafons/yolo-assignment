@@ -8,9 +8,15 @@ import {
   Container,
   Header,
   Title,
+  BoxCards,
 } from "./styles";
 
-export default function Dashboard({ title }) {
+export default function Dashboard({ title, data }) {
+  console.log(data)
+  let userDashboard = false;
+  if (title === 'Users') {
+    userDashboard = true;
+  }
   return (
     <Container>
       <Header>
@@ -18,9 +24,10 @@ export default function Dashboard({ title }) {
         <AddButton />
       </Header>
       <SearchBar />
-      <Card />
-      <Card />
-      <Card />
+      <BoxCards>
+          {data.map((item) => 
+          <Card key={item.key} item={item} userDashboard={userDashboard} />)}
+      </BoxCards>
     </Container>
   )
 }

@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Container, Title } from './styles';
+import { Container } from './styles';
+import DashboardController from '../../components/DashboardController';
 import Dashboard from '../../components/Dashboard';
+import { games, users } from "../../data";
 
 const MainPage = () => {
+  const [dashboardData, setDashboardData] = useState(games);
+  const [title, setTitle] = useState('Games');
+
+  useEffect(() => {
+    if (dashboardData === games) {
+      setTitle('Games');
+    } else {
+      setTitle('Users');
+    }
+  }, [dashboardData])
+  
   return (
     <Container>
-    <Dashboard title="Games"/>
-    <Dashboard title="Users"/>
+    <DashboardController setDashboardData={setDashboardData}/>
+    <Dashboard title={title} data={dashboardData}/>
     </Container>
   );
 }
