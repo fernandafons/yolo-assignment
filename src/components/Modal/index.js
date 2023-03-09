@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
 const Modal = ({title, userDashboard}) => {
+  // make it actually add data
   return (
     <Container>
       <Title>Add {title}</Title>

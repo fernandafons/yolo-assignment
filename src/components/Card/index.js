@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactModal from 'react-modal';
 
 import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
 import Button from '../Button';
+import EditModal from '../EditModal';
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
 export default function Card({ item, userDashboard }) {
   // console.log(userDashboard);
+  const [visible, setVisible] = useState(false);
   const editButton = () => {
     return (
       <BiEditAlt
@@ -25,6 +28,26 @@ export default function Card({ item, userDashboard }) {
       />
     )
   }
+
+  const openModal = () => {
+    setVisible(true);
+  }
+
+  const closeModal = () => {
+    setVisible(false);
+  }
+
+  const ModalStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)',
+      background: 'linear-gradient(180deg, #1D2766, #727fda)',
+    }
+  }
+
   return (
     <Container>
       <BoxText>
@@ -35,9 +58,12 @@ export default function Card({ item, userDashboard }) {
         </BoxDataText>
       </BoxText>
       <BoxButtons>
-        <Button icon={editButton} edit={true}/>
+        <Button icon={editButton} edit={true} onClick={openModal}/>
         <Button icon={trashButton}/>
       </BoxButtons>
+      <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
+        <EditModal item={item} userDashboard={userDashboard}/>
+      </ReactModal>
     </Container>
   )
 }
