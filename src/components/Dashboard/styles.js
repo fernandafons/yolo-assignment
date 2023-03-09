@@ -42,3 +42,23 @@ export const BoxCards =  styled.div`
   -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
   scrollbar-width: none;  /* Hide scrollbar for Firefox */
 `;
+
+export const AddButton = styled.button`
+  display: flex;
+  height: 40px;
+  width: 40px;
+  background-color: ${props => props.theme.colors.red};
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  :hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+`;
+
+export const AddButtonText = styled.text`
+  color: ${props => props.theme.colors.white };
+  font-size: ${props => props.theme.sizes.regular};
+`;
