@@ -3,11 +3,38 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
 import DashboardController from '../../components/DashboardController';
 import Dashboard from '../../components/Dashboard';
-import { games } from "../../data";
+
+import { getUsers } from "../../services/users";
+import { getGames } from "../../services/games";
 
 const MainPage = () => {
-  const [dashboardData, setDashboardData] = useState(games);
+  const [dashboardData, setDashboardData] = useState(null);
+  const [users, setUsers] = useState(null);
+  const [games, setGames] = useState(null);
   const [title, setTitle] = useState('Games');
+
+  const handleGetUsers = async() => {
+    try {
+      const response = await getUsers();
+      setUsers(response);
+      console.log(response);
+    } catch (error) {
+      // todo tratar isso aq
+      console.log("error message")
+    }
+  }
+
+  const handleGetGames = async() => {
+    try {
+      const response = await getGames();
+      console.log(response);
+      setGames(response);
+      setDashboardData(response)
+    } catch (error) {
+      // todo tratar isso aq
+      console.log("error message")
+    }
+  }
 
   useEffect(() => {
     if (dashboardData === games) {
@@ -15,12 +42,25 @@ const MainPage = () => {
     } else {
       setTitle('Users');
     }
-  }, [dashboardData])
+  }, [dashboardData, games])
+
+  useEffect(() => {
+    handleGetGames()
+    handleGetUsers()
+  }, [])
   
   return (
     <Container>
-    <DashboardController setDashboardData={setDashboardData}/>
-    <Dashboard title={title} data={dashboardData}/>
+    <DashboardController 
+      users={users} 
+      games={games} 
+      setDashboardData={setDashboardData}
+    />
+    { games && users && 
+        <Dashboard title={title} data={dashboardData}/>
+        // colocar loading
+    }
+    {/* <Loading/ > material */}
     </Container>
   );
 }

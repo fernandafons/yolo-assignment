@@ -1,4 +1,4 @@
-export const games = [
+export const GAMES = [
     {
       key: 1,
       name: 'test 1',
@@ -31,7 +31,7 @@ export const games = [
     },
 ];
 
-export const users = [
+export const USERS = [
     {
       key: 1,
       name: 'testy 1',

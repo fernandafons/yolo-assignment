@@ -12,17 +12,17 @@ export const VerticalLine = styled.div`
   border-right: 1px solid black;
   `;
 
-export const HorizontalLine = styled.div`
-  display: flex;
-  width: 350px;
-  border-bottom: 1px solid black;
-  `;
-
-export const Button = styled.button`
+export const GamesButton = styled.button`
   width: 50%;
   height: 60px;
   background-color: ${props => props.theme.colors.blue};
-  /* background: linear-gradient(0deg, #1D2766, #243189); */
+  border: none;
+`;
+
+export const UsersButton = styled.button`
+  width: 50%;
+  height: 60px;
+  background-color: ${props => props.theme.colors.blue};
   border: none;
 `;
 

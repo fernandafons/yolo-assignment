@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { editGames } from '../../services/games';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
@@ -7,6 +8,23 @@ const EditModal = ({item, userDashboard}) => {
   const [newSecondValue, setNewSecondValue] = useState(userDashboard ? item.email : item.category)
   const [newThirdValue, setNewThirdValue] = useState(userDashboard ? item.address : item.created_at)
 
+  
+  const handleEdit = async() => {
+    try {
+      if (!userDashboard) {
+        const newValue = {
+          id: item.id,
+          name: newFirstValue,
+          category: newSecondValue,
+          created_at: newThirdValue,
+        }
+        const response = await editGames(newValue);
+        console.log(response);
+      }
+    } catch (error) {
+      
+    }
+  }
   // todo: make it actually update data
   return (
     <Container>
@@ -34,7 +52,8 @@ const EditModal = ({item, userDashboard}) => {
           />
         </BoxInput>
       </BoxForms>
-      <AddButton>Edit {item.name}</AddButton>
+      {/* botar loading */}
+      <AddButton onClick={handleEdit}>Edit {item.name}</AddButton>
     </Container>
   )
 }

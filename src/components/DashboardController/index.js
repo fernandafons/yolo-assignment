@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Container, Button, ButtonText, VerticalLine, HorizontalLine } from './styles';
+import { Container, GamesButton, UsersButton, ButtonText, VerticalLine } from './styles';
 
-import { games, users } from "../../data";
 
-const DashboardController = ({ setDashboardData }) => {
+const DashboardController = ({ setDashboardData, users, games }) => {
+  const [gamesIsSelected, setGamesIsSelected] = useState(true);
+  const [usersIsSelected, setUsersIsSelected] = useState(false);
+
+  function handleClick(item) {
+    setDashboardData(item);
+    setGamesIsSelected(!gamesIsSelected);
+    setUsersIsSelected(!usersIsSelected);
+  }
+
   return (
     <>
       <Container>
-        <Button onClick={() => setDashboardData(games)}>
+        <GamesButton isSelected={gamesIsSelected} onClick={() => handleClick(games)}>
           <ButtonText>Games</ButtonText>
-        </Button>
+        </GamesButton>
         <VerticalLine />
-        <Button onClick={() => setDashboardData(users)}>
+        <UsersButton isSelected={usersIsSelected} onClick={() => handleClick(users)}>
           <ButtonText>Users</ButtonText>
-        </Button>
+        </UsersButton>
       </Container>
-      <HorizontalLine />
     </>
   )
 }

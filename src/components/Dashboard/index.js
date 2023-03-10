@@ -39,6 +39,7 @@ export default function Dashboard({ title, data }) {
     });
     setFilteredList(updatedList);
   };
+  
 
   useEffect(() => {
     setFilteredList(data)
