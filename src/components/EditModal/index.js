@@ -21,19 +21,15 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
           category: newCategory,
           created_at: newCreatedAt,
         }
-        console.log('item', item);
         const response = await editGames(data, newValue);
-        console.log('response', response);
         setGames(response)
         setVisible(false)
       }
     } catch (error) {
-      
+      console.log("error message");
     }
   }
-  
 
-  // todo: make it actually update data
   return (
     <Container>
       <Title>Edit {item.name}</Title>

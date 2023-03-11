@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 
 import SearchBar from "../SearchBar";
 import Card from "../CardGames";
-import Modal from "../Modal";
+import Modal from "../AddModal";
 
 import {
   Container,

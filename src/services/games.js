@@ -17,5 +17,11 @@ export const deleteGames = async(currentGames, newData) => {
   return currentGames.filter(item => item.id !== newData.id);
 }
 
+export const addGames = async(currentGames, newData) => {
+  console.log('newData', newData);
+  await new Promise(response => setTimeout(response, 1500))
+  return [...currentGames, newData];
+}
+
 // return filter-id enviado
 // edit, importa, pega oq foi editado, retorna tudo + oq foi editado

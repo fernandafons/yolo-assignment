@@ -3,12 +3,11 @@ import ReactModal from 'react-modal';
 
 import SearchBar from "../SearchBar";
 import CardGames from "../CardGames";
-import Modal from "../Modal";
+import AddModal from "../AddModal";
 
 import {
   Container,
   Header,
-  Title,
   BoxCards,
   AddButton,
   AddButtonText,
@@ -56,17 +55,21 @@ export default function DashboardGames({ title, data, setGames, userDashboard })
       <Container>
         <Header>
           <SearchBar filter={filter}/>
-          <AddButton onClick={() => openModal()}>
+          <AddButton onClick={openModal} >
             <AddButtonText>+</AddButtonText>
           </AddButton>
         </Header>
         
         <BoxCards>
       {filteredList.map((item) => 
-      <CardGames key={item.key} item={item} data={data} setGames={setGames}/>)}
+      <CardGames key={item.key} item={item} data={data} setGames={setGames} />)}
         </BoxCards>
         <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
-          <Modal title={title} userDashboard={userDashboard}/>
+          <AddModal 
+            setVisible={setVisible} 
+            data={data} 
+            setGames={setGames} 
+          />
         </ReactModal>
       </Container>
   )

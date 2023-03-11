@@ -17,11 +17,11 @@ const DashboardController = ({ setDashboardData, users, games }) => {
     <>
       <Container>
         <GamesButton isSelected={gamesIsSelected} onClick={() => handleClick(games)}>
-          <ButtonText>Games</ButtonText>
+          <ButtonText isSelected={gamesIsSelected}>Games</ButtonText>
         </GamesButton>
         <VerticalLine />
         <UsersButton isSelected={usersIsSelected} onClick={() => handleClick(users)}>
-          <ButtonText>Users</ButtonText>
+          <ButtonText isSelected={usersIsSelected}>Users</ButtonText>
         </UsersButton>
       </Container>
     </>

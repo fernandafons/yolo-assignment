@@ -10,7 +10,6 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
-  /* border-radius: 10px; */
 `;
 export const Header = styled.div`
   display: flex;
@@ -20,11 +19,6 @@ export const Header = styled.div`
   align-items: center;
   margin: 20px 10px;
 `;
-export const Title = styled.text`
-  color: ${props => props.theme.colors.white};
-  font-size: ${props => props.theme.sizes.big};
-  font-weight: bold;
-`;
 
 export const BoxCards =  styled.div`
   height: 100%;
@@ -33,7 +27,7 @@ export const BoxCards =  styled.div`
   align-items: center;
   overflow-y: scroll;
   margin-top: 10px;
-  /* background-color: green ; */
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;

@@ -36,6 +36,7 @@ export const Input = styled.input`
   display: flex;
   width: 160px;
   height: 28px;
+  padding: 0 10px ;
   border-radius: 5px;
   border: none;
 `;
