@@ -17,7 +17,7 @@ const MainPage = () => {
     try {
       const response = await getUsers();
       setUsers(response);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       // todo tratar isso aq
       console.log("error message")
@@ -27,7 +27,7 @@ const MainPage = () => {
   const handleGetGames = async() => {
     try {
       const response = await getGames();
-      console.log(response);
+      // console.log(response);
       setGames(response);
       setDashboardData(response)
     } catch (error) {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Title, BoxForms, BoxInput, Text, AddButton } from './styles';
 
-const EditModal = ({item, userDashboard}) => {
+const EditModal = ({ item }) => {
 
   // todo: make it actually delete data
   return (

@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactModal from 'react-modal';
 
 import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
 import Button from '../Button';
 import EditModal from '../EditModal';
 import DeleteModal from '../DeleteModal';
+import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
-export default function Card({ item, userDashboard }) {
-  // console.log(userDashboard);
+export default function Card({ item, data }) {
   const [visible, setVisible] = useState(false);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const userDashboard = useContext(UserDashboardContext);
+  console.log('userDashboard no card?', userDashboard);
 
   const editButton = () => {
     return (
@@ -77,14 +79,14 @@ export default function Card({ item, userDashboard }) {
         onRequestClose={closeModal} 
         style={ModalStyles}
       >
-        <EditModal item={item} userDashboard={userDashboard}/>
+        <EditModal item={item} data={data}/>
       </ReactModal>
       <ReactModal 
         isOpen={deleteModalVisible} 
         onRequestClose={closeDeleteModal} 
         style={ModalStyles}
       >
-        <DeleteModal item={item} userDashboard={userDashboard}/>
+        <DeleteModal item={item} />
       </ReactModal>
     </Container>
   )

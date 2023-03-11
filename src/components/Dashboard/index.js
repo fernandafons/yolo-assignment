@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import ReactModal from 'react-modal';
 
 import SearchBar from "../SearchBar";
 import Card from "../Card";
 import Modal from "../Modal";
+import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 
 import {
   Container,
@@ -17,7 +18,7 @@ import {
 export default function Dashboard({ title, data }) {
   const [visible, setVisible] = useState(false);
   const [filteredList, setFilteredList] = useState(data);
-  let userDashboard = false;
+  let userDashboard = useContext(UserDashboardContext);
   let updatedList = [...data];
 
   if (title === 'Users') {
@@ -41,6 +42,7 @@ export default function Dashboard({ title, data }) {
   };
   
 
+
   useEffect(() => {
     setFilteredList(data)
   }, [data])
@@ -58,21 +60,23 @@ export default function Dashboard({ title, data }) {
   }
 
   return (
-    <Container>
-      <Header>
-        <Title>{title}</Title>
-        <AddButton onClick={() => openModal()}>
-          <AddButtonText>+</AddButtonText>
-        </AddButton>
-      </Header>
-      <SearchBar filter={filter}/>
-      <BoxCards>
-          {filteredList.map((item) => 
-          <Card key={item.key} item={item} userDashboard={userDashboard} />)}
-      </BoxCards>
-      <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
-        <Modal title={title} userDashboard={userDashboard}/>
-      </ReactModal>
-    </Container>
+    <UserDashboardContext.Provider value={userDashboard}>
+      <Container>
+        <Header>
+          <Title>{title}</Title>
+          <AddButton onClick={() => openModal()}>
+            <AddButtonText>+</AddButtonText>
+          </AddButton>
+        </Header>
+        <SearchBar filter={filter}/>
+        <BoxCards>
+      {filteredList.map((item) => 
+      <Card key={item.key} item={item} data={data}/>)}
+        </BoxCards>
+        <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
+          <Modal title={title} userDashboard={userDashboard}/>
+        </ReactModal>
+      </Container>
+    </UserDashboardContext.Provider>
   )
 }

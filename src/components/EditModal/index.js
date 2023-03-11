@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
-import { editGames } from '../../services/games';
+import React, { useState, useContext } from 'react';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
-const EditModal = ({item, userDashboard}) => {
-  const [newFirstValue, setNewFirstValue] = useState(item.name)
-  const [newSecondValue, setNewSecondValue] = useState(userDashboard ? item.email : item.category)
-  const [newThirdValue, setNewThirdValue] = useState(userDashboard ? item.address : item.created_at)
+import { UserDashboardContext } from "../../hooks/Context/Dashboard";
+import { editGames } from '../../services/games';
 
-  
-  const handleEdit = async() => {
+const EditModal = ({ item, data }) => {
+  const userDashboard = useContext(UserDashboardContext);
+
+  const [currentGames, setCurrentGames] = useState(data);
+  const [newName, setNewName] = useState(item.name)
+  const [newCategory, setNewCategory] = useState(userDashboard ? item.email : item.category)
+  const [newCreatedAt, setNewCreatedAt] = useState(userDashboard ? item.address : item.created_at)
+
+  const handleEdit = async(item, newName, newCategory, newCreatedAt) => {
     try {
       if (!userDashboard) {
         const newValue = {
           id: item.id,
-          name: newFirstValue,
-          category: newSecondValue,
-          created_at: newThirdValue,
+          name: newName,
+          category: newCategory,
+          created_at: newCreatedAt,
         }
-        const response = await editGames(newValue);
+        const response = await editGames(currentGames, newValue);
         console.log(response);
+        setCurrentGames(response)
       }
     } catch (error) {
       
     }
   }
+  
+
   // todo: make it actually update data
   return (
     <Container>
@@ -33,27 +40,27 @@ const EditModal = ({item, userDashboard}) => {
         <BoxInput>
           <Text>Name: </Text>
           <Input 
-            value={newFirstValue} 
-            onChange={(event) => setNewFirstValue(event.target.value)} 
+            value={newName} 
+            onChange={(event) => setNewName(event.target.value)} 
           />
         </BoxInput>
         <BoxInput>
           <Text>{userDashboard ? 'Email: ' : 'Category: '}</Text>
           <Input 
-            value={newSecondValue}
-            onChange={(event) => setNewSecondValue(event.target.value)}
+            value={newCategory}
+            onChange={(event) => setNewCategory(event.target.value)}
           />
         </BoxInput>
         <BoxInput>
           <Text>{userDashboard ? 'Address: ' : 'Created_at: '}</Text>
           <Input 
-            value={newThirdValue} 
-            onChange={(event) => setNewThirdValue(event.target.value)}
+            value={newCreatedAt} 
+            onChange={(event) => setNewCreatedAt(event.target.value)}
           />
         </BoxInput>
       </BoxForms>
       {/* botar loading */}
-      <AddButton onClick={handleEdit}>Edit {item.name}</AddButton>
+      <AddButton onClick={handleEdit(item, newName, newCategory, newCreatedAt)}>Edit {item.name}</AddButton>
     </Container>
   )
 }
