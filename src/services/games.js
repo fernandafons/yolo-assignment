@@ -8,8 +8,11 @@ export const getGames = async() => {
 export const editGames = async(currentGames, newData) => {
   await new Promise(response => setTimeout(response, 2000))
   let games = currentGames.filter(item => item.id !== newData.id);
-  games = [...games, newData];
-  return games.sort((a, b) => a.id - b.id)
+  const newGames = [...games, newData];
+  console.log('currentGames',currentGames)
+  console.log('newData',newData)
+  console.log('newGames',newGames.sort((a, b) => a.id - b.id))
+  return newGames.sort((a, b) => a.id - b.id);
 }
 
 // return filter-id enviado

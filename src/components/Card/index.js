@@ -10,7 +10,7 @@ import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
-export default function Card({ item, data }) {
+export default function Card({ item, data, setGames }) {
   const [visible, setVisible] = useState(false);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const userDashboard = useContext(UserDashboardContext);
@@ -79,7 +79,7 @@ export default function Card({ item, data }) {
         onRequestClose={closeModal} 
         style={ModalStyles}
       >
-        <EditModal item={item} data={data}/>
+        <EditModal item={item} data={data} setGames={setGames} setVisible={setVisible}/>
       </ReactModal>
       <ReactModal 
         isOpen={deleteModalVisible} 

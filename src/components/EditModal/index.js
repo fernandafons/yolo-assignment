@@ -5,15 +5,15 @@ import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './
 import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 import { editGames } from '../../services/games';
 
-const EditModal = ({ item, data }) => {
+const EditModal = ({ item, data, setGames, setVisible }) => {
   const userDashboard = useContext(UserDashboardContext);
 
-  const [currentGames, setCurrentGames] = useState(data);
+  // const [currentGames, setCurrentGames] = useState(data);
   const [newName, setNewName] = useState(item.name)
   const [newCategory, setNewCategory] = useState(userDashboard ? item.email : item.category)
   const [newCreatedAt, setNewCreatedAt] = useState(userDashboard ? item.address : item.created_at)
 
-  const handleEdit = async(item, newName, newCategory, newCreatedAt) => {
+  const handleEdit = async() => {
     try {
       if (!userDashboard) {
         const newValue = {
@@ -22,9 +22,11 @@ const EditModal = ({ item, data }) => {
           category: newCategory,
           created_at: newCreatedAt,
         }
-        const response = await editGames(currentGames, newValue);
-        console.log(response);
-        setCurrentGames(response)
+        console.log('item', item);
+        const response = await editGames(data, newValue);
+        console.log('response', response);
+        setGames(response)
+        setVisible(false)
       }
     } catch (error) {
       
@@ -60,7 +62,7 @@ const EditModal = ({ item, data }) => {
         </BoxInput>
       </BoxForms>
       {/* botar loading */}
-      <AddButton onClick={handleEdit(item, newName, newCategory, newCreatedAt)}>Edit {item.name}</AddButton>
+      <AddButton onClick={() => handleEdit()}>Edit {item.name}</AddButton>
     </Container>
   )
 }

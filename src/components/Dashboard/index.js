@@ -15,7 +15,7 @@ import {
   AddButtonText,
 } from "./styles";
 
-export default function Dashboard({ title, data }) {
+export default function Dashboard({ title, data, setGames }) {
   const [visible, setVisible] = useState(false);
   const [filteredList, setFilteredList] = useState(data);
   let userDashboard = useContext(UserDashboardContext);
@@ -71,7 +71,7 @@ export default function Dashboard({ title, data }) {
         <SearchBar filter={filter}/>
         <BoxCards>
       {filteredList.map((item) => 
-      <Card key={item.key} item={item} data={data}/>)}
+      <Card key={item.key} item={item} data={data} setGames={setGames}/>)}
         </BoxCards>
         <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
           <Modal title={title} userDashboard={userDashboard}/>

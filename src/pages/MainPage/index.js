@@ -48,6 +48,10 @@ const MainPage = () => {
     handleGetGames()
     handleGetUsers()
   }, [])
+
+  useEffect(() => {
+    setDashboardData(games);
+  }, [games])
   
   return (
     <Container>
@@ -57,7 +61,7 @@ const MainPage = () => {
       setDashboardData={setDashboardData}
     />
     { games && users && 
-        <Dashboard title={title} data={dashboardData}/>
+        <Dashboard title={title} data={dashboardData} setGames={setGames}/>
         // colocar loading
     }
     {/* <Loading/ > material */}
