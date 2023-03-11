@@ -17,8 +17,7 @@ export const Header = styled.div`
   width: 85%;
   height: 50px;
   justify-content: space-between;
-  flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   margin: 20px 10px;
 `;
 export const Title = styled.text`

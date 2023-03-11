@@ -1,20 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 
 import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
 import Button from '../Button';
 import EditModal from '../EditModal';
 import DeleteModal from '../DeleteModal';
-import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
-export default function Card({ item, data, setGames }) {
+export default function CardGames({ item, data, setGames }) {
   const [visible, setVisible] = useState(false);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
-  const userDashboard = useContext(UserDashboardContext);
-  console.log('userDashboard no card?', userDashboard);
 
   const editButton = () => {
     return (
@@ -66,8 +63,8 @@ export default function Card({ item, data, setGames }) {
       <BoxText>
         <Title>{item.name}</Title>
         <BoxDataText>
-          <DataText>{userDashboard ? item.email : item.category}</DataText>
-          <DataText>{userDashboard ? item.address : item.created_at}</DataText>
+          <DataText>{item.category}</DataText>
+          <DataText>{item.created_at}</DataText>
         </BoxDataText>
       </BoxText>
       <BoxButtons>
@@ -86,7 +83,7 @@ export default function Card({ item, data, setGames }) {
         onRequestClose={closeDeleteModal} 
         style={ModalStyles}
       >
-        <DeleteModal item={item} />
+        <DeleteModal data={data} setGames={setGames} item={item} setDeleteModalVisible={setDeleteModalVisible} />
       </ReactModal>
     </Container>
   )

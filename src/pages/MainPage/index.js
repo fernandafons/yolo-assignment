@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { Container } from './styles';
 import DashboardController from '../../components/DashboardController';
-import Dashboard from '../../components/Dashboard';
 
 import { getUsers } from "../../services/users";
 import { getGames } from "../../services/games";
+import DashboardUsers from '../../components/DashboardUsers';
+import DashboardGames from '../../components/DashboardGames';
+import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 
 const MainPage = () => {
   const [dashboardData, setDashboardData] = useState(null);
   const [users, setUsers] = useState(null);
   const [games, setGames] = useState(null);
   const [title, setTitle] = useState('Games');
+  let userDashboard = useContext(UserDashboardContext);
+
+  if (title === 'Users') {
+    userDashboard = true;
+  }
 
   const handleGetUsers = async() => {
     try {
@@ -54,18 +61,34 @@ const MainPage = () => {
   }, [games])
   
   return (
-    <Container>
-    <DashboardController 
-      users={users} 
-      games={games} 
-      setDashboardData={setDashboardData}
-    />
-    { games && users && 
-        <Dashboard title={title} data={dashboardData} setGames={setGames}/>
-        // colocar loading
-    }
-    {/* <Loading/ > material */}
-    </Container>
+
+    <UserDashboardContext.Provider value={userDashboard}>
+      <Container>
+        <DashboardController 
+          users={users} 
+          games={games} 
+          setDashboardData={setDashboardData}
+        />
+        { games && !userDashboard &&
+            <DashboardGames 
+              title={title} 
+              data={dashboardData} 
+              userDashboard={userDashboard} 
+              setGames={setGames}
+            />
+        } 
+        { users && userDashboard &&
+            <DashboardUsers
+              title={title} 
+              data={dashboardData} 
+              userDashboard={userDashboard} 
+              setGames={setGames}
+            />
+            // colocar loading
+        }
+        {/* <Loading/ > material */}
+      </Container>
+    </UserDashboardContext.Provider>
   );
 }
 

@@ -8,7 +8,6 @@ import { editGames } from '../../services/games';
 const EditModal = ({ item, data, setGames, setVisible }) => {
   const userDashboard = useContext(UserDashboardContext);
 
-  // const [currentGames, setCurrentGames] = useState(data);
   const [newName, setNewName] = useState(item.name)
   const [newCategory, setNewCategory] = useState(userDashboard ? item.email : item.category)
   const [newCreatedAt, setNewCreatedAt] = useState(userDashboard ? item.address : item.created_at)
