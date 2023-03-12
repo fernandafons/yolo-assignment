@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
 import Button from '../Button';
 import EditModalUsers from '../EditModalUsers';
-import DeleteModal from '../DeleteModal';
+import DeleteModalUsers from '../DeleteModalUsers';
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
@@ -88,7 +88,12 @@ export default function CardUsers({ item, users, setUsers }) {
         onRequestClose={closeDeleteModal} 
         style={ModalStyles}
       >
-        <DeleteModal users={users} setUsers={setUsers} item={item} setDeleteModalVisible={setDeleteModalVisible} />
+        <DeleteModalUsers 
+          users={users} 
+          setUsers={setUsers} 
+          item={item} 
+          setDeleteModalVisible={setDeleteModalVisible} 
+        />
       </ReactModal>
     </Container>
   )

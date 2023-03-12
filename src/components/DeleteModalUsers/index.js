@@ -1,21 +1,20 @@
 import React from 'react';
 
-import { deleteGames } from '../../services/games';
+import { deleteUsers } from '../../services/users';
 import { Container, Title, BoxForms, BoxInput, Text, AddButton } from './styles';
 
-const DeleteModal = ({ item, data, setGames, setDeleteModalVisible }) => {
+const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
 
   const handleDelete = async() => {
     try {
-      const response = await deleteGames(data, item);
-      console.log('response', response);
-      setGames(response)
+      const response = await deleteUsers(users, item);
+      setUsers(response)
       setDeleteModalVisible(false)
     } catch (error) {
-      
+      console.log('Error', error);
     }
   }
-  // todo: make it actually delete data
+
   return (
     <Container>
       <Title>Delete {item.name}?</Title>
@@ -29,4 +28,4 @@ const DeleteModal = ({ item, data, setGames, setDeleteModalVisible }) => {
   )
 }
 
-export default DeleteModal;
+export default DeleteModalUsers;

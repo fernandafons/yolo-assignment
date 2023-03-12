@@ -21,11 +21,6 @@ export const Header = styled.div`
   align-items: center;
   margin: 20px 10px;
 `;
-export const Title = styled.text`
-  color: ${props => props.theme.colors.white};
-  font-size: ${props => props.theme.sizes.big};
-  font-weight: bold;
-`;
 
 export const BoxCards =  styled.div`
   height: 100%;

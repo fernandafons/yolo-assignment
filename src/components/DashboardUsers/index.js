@@ -8,7 +8,6 @@ import Modal from "../AddModal";
 import {
   Container,
   Header,
-  Title,
   BoxCards,
   AddButton,
   AddButtonText,
