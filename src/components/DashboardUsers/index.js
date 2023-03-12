@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 
 import SearchBar from "../SearchBar";
 import CardUsers from "../CardUsers";
-import Modal from "../AddModal";
+import AddModalUsers from "../AddModalUsers";
 
 import {
   Container,
@@ -63,7 +63,7 @@ export default function DashboardUsers({ title, setUsers, userDashboard, users }
     <CardUsers key={item.id} item={item} users={users} setUsers={setUsers}/>)}
       </BoxCards>
       <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
-        <Modal title={title} userDashboard={userDashboard}/>
+        <AddModalUsers setVisible={setVisible} users={users} setUsers={setUsers}/>
       </ReactModal>
     </Container>
   )
