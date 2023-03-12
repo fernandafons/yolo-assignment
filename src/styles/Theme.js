@@ -7,7 +7,7 @@ export const Theme = {
     green: "#32BD50",
   },
   sizes: {
-    big: "28px",
+    big: "25px",
     regular: "18px",
     small: "15px",
   },

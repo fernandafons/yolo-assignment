@@ -10,6 +10,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
+  border-top-right-radius: 10px;
 `;
 export const Header = styled.div`
   display: flex;

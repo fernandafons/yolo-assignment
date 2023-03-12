@@ -10,14 +10,13 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
-  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
 `;
 export const Header = styled.div`
   display: flex;
   width: 85%;
   height: 50px;
   justify-content: space-between;
-  /* flex-direction: row; */
   align-items: center;
   margin: 20px 10px;
 `;
@@ -29,7 +28,7 @@ export const BoxCards =  styled.div`
   align-items: center;
   overflow-y: scroll;
   margin-top: 10px;
-  /* background-color: green ; */
+  
   /* Hide scrollbar for Chrome, Safari and Opera */
   ::-webkit-scrollbar {
     display: none;

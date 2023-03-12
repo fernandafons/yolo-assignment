@@ -11,7 +11,6 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
 
   const handleAdd = async() => {
     try {
-      console.log("users", users)
       const id = users.length >1 ? users[users.length-1].id+1 : 1;
       const newValue = {
         id: id,
@@ -19,7 +18,6 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
         email: email,
         address: address,
       }
-      console.log("newValue", newValue)
       const response = await addUsers(users, newValue);
       setUsers(response)
       setVisible(false)
