@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 
 import SearchBar from "../SearchBar";
-import Card from "../CardGames";
+import CardUsers from "../CardUsers";
 import Modal from "../AddModal";
 
 import {
@@ -14,10 +14,10 @@ import {
   AddButtonText,
 } from "./styles";
 
-export default function DashboardUsers({ title, data, setGames, userDashboard }) {
+export default function DashboardUsers({ title, setUsers, userDashboard, users }) {
   const [visible, setVisible] = useState(false);
-  const [filteredList, setFilteredList] = useState(data);
-  let updatedList = [...data];
+  const [filteredList, setFilteredList] = useState(users);
+  let updatedList = [...users];
   
   const openModal = () => {
     setVisible(true);
@@ -36,8 +36,8 @@ export default function DashboardUsers({ title, data, setGames, userDashboard })
   };
   
   useEffect(() => {
-    setFilteredList(data)
-  }, [data])
+    setFilteredList(users)
+  }, [users])
   // todo: treat case in which user change dashboard with data in the input area.
 
   const ModalStyles = {
@@ -61,7 +61,7 @@ export default function DashboardUsers({ title, data, setGames, userDashboard })
       </Header>
       <BoxCards>
     {filteredList.map((item) => 
-    <Card key={item.key} item={item} data={data} setGames={setGames}/>)}
+    <CardUsers key={item.id} item={item} users={users} setUsers={setUsers}/>)}
       </BoxCards>
       <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
         <Modal title={title} userDashboard={userDashboard}/>

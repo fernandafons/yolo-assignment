@@ -71,18 +71,17 @@ const MainPage = () => {
         />
         { games && !userDashboard &&
             <DashboardGames 
-              title={title} 
-              data={dashboardData} 
-              userDashboard={userDashboard} 
+              data={games}
               setGames={setGames}
             />
         } 
         { users && userDashboard &&
             <DashboardUsers
               title={title} 
-              data={dashboardData} 
+              // data={dashboardData} 
               userDashboard={userDashboard} 
-              setGames={setGames}
+              setUsers={setUsers}
+              users={users}
             />
             // colocar loading
         }

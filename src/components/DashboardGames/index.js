@@ -13,7 +13,7 @@ import {
   AddButtonText,
 } from "./styles";
 
-export default function DashboardGames({ title, data, setGames, userDashboard }) {
+export default function DashboardGames({ data, setGames }) {
   const [visible, setVisible] = useState(false);
   const [filteredList, setFilteredList] = useState(data);
   let updatedList = [...data];
@@ -62,7 +62,7 @@ export default function DashboardGames({ title, data, setGames, userDashboard })
         
         <BoxCards>
       {filteredList.map((item) => 
-      <CardGames key={item.key} item={item} data={data} setGames={setGames} />)}
+      <CardGames key={item.id} item={item} data={data} setGames={setGames} />)}
         </BoxCards>
         <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
           <AddModal 
