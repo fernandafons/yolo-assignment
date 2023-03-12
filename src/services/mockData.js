@@ -3,31 +3,31 @@ export const GAMES = [
       id: 1,
       name: 'test 1',
       category: 'category 1',
-      created_at: 'date',
+      created_at: 'Wed Mar 22 2023 00:00:00 GMT-0300 (Brasilia Standard Time)',
     },
     {
       id: 2,
       name: 'blalba 2',
       category: 'category 2',
-      created_at: 'date',
+      created_at: 'Wed Mar 22 2023 00:00:00 GMT-0300 (Brasilia Standard Time)',
     },
     {
       id: 3,
       name: 'casccs 3',
       category: 'category 3',
-      created_at: 'date',
+      created_at: 'Wed Mar 22 2023 00:00:00 GMT-0300 (Brasilia Standard Time)',
     },
     {
       id: 4,
       name: 'dsdefc 4',
       category: 'category 4',
-      created_at: 'date',
+      created_at: 'Wed Mar 22 2023 00:00:00 GMT-0300 (Brasilia Standard Time)',
     },
     {
       id: 5,
       name: 'wert 5',
       category: 'category 5',
-      created_at: 'date',
+      created_at: 'Wed Mar 22 2023 00:00:00 GMT-0300 (Brasilia Standard Time)',
     },
 ];
 

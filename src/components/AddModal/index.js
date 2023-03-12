@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DatePicker } from '@mui/x-date-pickers';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
@@ -16,7 +17,7 @@ const AddModal = ({ setVisible, data, setGames }) => {
         id: id,
         name: name,
         category: category,
-        created_at: createdAt,
+        created_at: createdAt.toString(),
       }
       const response = await addGames(data, newValue);
       setGames(response)
@@ -45,9 +46,10 @@ const AddModal = ({ setVisible, data, setGames }) => {
         </BoxInput>
         <BoxInput>
           <Text>Created at:</Text>
-          <Input 
+          <DatePicker 
             placeholder='Type date'
-            onChange={(event) => setCreatedAt(event.target.value)} 
+            value={createdAt}
+            onChange={(event) => setCreatedAt(event)} 
           />
         </BoxInput>
       </BoxForms>

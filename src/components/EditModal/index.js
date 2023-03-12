@@ -1,4 +1,7 @@
 import React, { useState, useContext } from 'react';
+import { DatePicker } from '@mui/x-date-pickers';
+import { TextField } from '@mui/material';
+import dayjs from "dayjs";
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
@@ -9,8 +12,9 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
   const userDashboard = useContext(UserDashboardContext);
 
   const [newName, setNewName] = useState(item.name)
-  const [newCategory, setNewCategory] = useState(userDashboard ? item.email : item.category)
-  const [newCreatedAt, setNewCreatedAt] = useState(userDashboard ? item.address : item.created_at)
+  const [newCategory, setNewCategory] = useState(item.category)
+  // console.log('item.created_at', item.created_at)
+  const [newCreatedAt, setNewCreatedAt] = useState(null)
 
   const handleEdit = async() => {
     try {
@@ -19,14 +23,14 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
           id: item.id,
           name: newName,
           category: newCategory,
-          created_at: newCreatedAt,
+          created_at: newCreatedAt ? newCreatedAt.toString() : item.created_at,
         }
         const response = await editGames(data, newValue);
         setGames(response)
         setVisible(false)
       }
     } catch (error) {
-      console.log("error message");
+      console.log("error message", error);
     }
   }
 
@@ -35,25 +39,30 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
       <Title>Edit {item.name}</Title>
       <BoxForms>
         <BoxInput>
-          <Text>Name: </Text>
+          <Text>Name:</Text>
           <Input 
             value={newName} 
             onChange={(event) => setNewName(event.target.value)} 
           />
         </BoxInput>
         <BoxInput>
-          <Text>{userDashboard ? 'Email: ' : 'Category: '}</Text>
+          <Text>Category:</Text>
           <Input 
             value={newCategory}
             onChange={(event) => setNewCategory(event.target.value)}
           />
         </BoxInput>
         <BoxInput>
-          <Text>{userDashboard ? 'Address: ' : 'Created_at: '}</Text>
-          <Input 
+          <Text>Created at:</Text>
+          <DatePicker 
+            // placeholder='Type date'
+            value={newCreatedAt}
+            onChange={(event) => setNewCreatedAt(event)} 
+          />
+          {/* <Input 
             value={newCreatedAt} 
             onChange={(event) => setNewCreatedAt(event.target.value)}
-          />
+          /> */}
         </BoxInput>
       </BoxForms>
       {/* botar loading */}
