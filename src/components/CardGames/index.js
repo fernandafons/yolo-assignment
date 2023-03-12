@@ -57,6 +57,9 @@ export default function CardGames({ item, data, setGames }) {
       background: 'linear-gradient(180deg, #1D2766, #727fda)',
     }
   }
+  // console.log(typeof item.created_at)
+  const date = new Date(item.created_at)
+  const formatedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 
   return (
     <Container>
@@ -64,7 +67,7 @@ export default function CardGames({ item, data, setGames }) {
         <Title>{item.name}</Title>
         <BoxDataText>
           <DataText>{item.category}</DataText>
-          <DataText>{item.created_at}</DataText>
+          <DataText>{formatedDate}</DataText>
         </BoxDataText>
       </BoxText>
       <BoxButtons>

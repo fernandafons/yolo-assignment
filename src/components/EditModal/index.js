@@ -55,14 +55,10 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
         <BoxInput>
           <Text>Created at:</Text>
           <DatePicker 
-            // placeholder='Type date'
+            label={item.created_at}
             value={newCreatedAt}
             onChange={(event) => setNewCreatedAt(event)} 
           />
-          {/* <Input 
-            value={newCreatedAt} 
-            onChange={(event) => setNewCreatedAt(event.target.value)}
-          /> */}
         </BoxInput>
       </BoxForms>
       {/* botar loading */}

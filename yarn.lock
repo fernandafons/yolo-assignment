@@ -1738,6 +1738,13 @@
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.11.12.tgz#b2ea89ba71321a79c89dfb6b2a1b1886dc7de6e4"
   integrity sha512-LHh8HZQ5nPVcW5QnyLwkAZ40txc/S2bzKMQ3bTO+5mjuwAJ2AzQrjZINLVy1geY7ei1pHXVqO1hcWHg/QdT44w==
 
+"@mui/icons-material@^5.11.11":
+  version "5.11.11"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.11.11.tgz#d4e01bd405b0dac779f5e060586277f91f3acb6e"
+  integrity sha512-Eell3ADmQVE8HOpt/LZ3zIma8JSvPh3XgnhwZLT0k5HRqZcd6F/QDHc7xsWtgz09t+UEFvOYJXjtrwKmLdwwpw==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+
 "@mui/material@^5.11.12":
   version "5.11.12"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.11.12.tgz#b113c854fb1bb0aa473686a36a92322c6c754121"
@@ -1813,7 +1820,24 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/x-date-pickers@^6.0.1":
+"@mui/x-date-pickers-pro@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers-pro/-/x-date-pickers-pro-6.0.1.tgz#d0cf4e59162bfd6ab33ca0d5283656b39a949bd8"
+  integrity sha512-3G3dyfc1yOjSVWKOmpcWF2ld6XSrRVn4nROD4kKEb5IlS8HMFyE6KX/oIlHKVAiETHr91ad30V1PUVwHD19yTg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@date-io/date-fns" "^2.16.0"
+    "@date-io/dayjs" "^2.16.0"
+    "@date-io/luxon" "^2.16.1"
+    "@date-io/moment" "^2.16.1"
+    "@mui/utils" "^5.11.7"
+    "@mui/x-date-pickers" "6.0.1"
+    "@mui/x-license-pro" "6.0.1"
+    clsx "^1.2.1"
+    prop-types "^15.8.1"
+    react-transition-group "^4.4.5"
+
+"@mui/x-date-pickers@6.0.1", "@mui/x-date-pickers@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@mui/x-date-pickers/-/x-date-pickers-6.0.1.tgz#855f71b0661602c105dfd75bd0d38cd8c40d59f5"
   integrity sha512-eZ3uTWp2uA08h4IULoqI7rkP16ltzZH0kSdZdvLCvaa4ix1ZP5zGcvt8CdtxM+NFWjRS7fGWPOgOoScGw9lKLQ==
@@ -1832,6 +1856,14 @@
     clsx "^1.2.1"
     prop-types "^15.8.1"
     react-transition-group "^4.4.5"
+
+"@mui/x-license-pro@6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@mui/x-license-pro/-/x-license-pro-6.0.1.tgz#c7ad67d3af9775022bd3123dd42f6e23b4a57ee9"
+  integrity sha512-ijSYbtjJlgRUcQPm+VAJMbTkuROxB9wYpfwV08aUdJbbVY2GnxGwJ8SohvEVMeFDsYR9nx2Gic08rDf/kzGYhg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@mui/utils" "^5.11.7"
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"

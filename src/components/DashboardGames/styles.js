@@ -56,3 +56,38 @@ export const AddButtonText = styled.text`
   color: ${props => props.theme.colors.white };
   font-size: ${props => props.theme.sizes.regular};
 `;
+
+export const BoxFilter = styled.div`
+  display: flex;
+  width: 85%;
+  justify-content: flex-end;
+  
+`;
+
+export const DateSearch = styled.div`
+  display: flex;
+  width: 85%;
+  justify-content: flex-end;
+  
+`;
+
+export const BoxIcon = styled.button`
+  display: flex;
+  width: 100px;
+  height: 55px;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 10px;
+  border: none;
+  background-color: ${props => props.theme.colors.darkBlue};
+  margin-left: 10px;
+`;
+
+export const Text = styled.button`
+  color: ${props => props.theme.colors.white };
+  font-size: ${props => props.theme.sizes.regular};
+  background: none;
+  border: none;
+  /* text-decoration: underline; */
+`;

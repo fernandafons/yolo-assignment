@@ -47,7 +47,7 @@ const AddModal = ({ setVisible, data, setGames }) => {
         <BoxInput>
           <Text>Created at:</Text>
           <DatePicker 
-            placeholder='Type date'
+            label={'Choose date'}
             value={createdAt}
             onChange={(event) => setCreatedAt(event)} 
           />
