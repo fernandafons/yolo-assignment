@@ -25,7 +25,7 @@ export default function CardUsers({ item, users, setUsers }) {
   const trashButton = () => {
     return (
       <BsTrash
-        color='#32BD50'
+        color='#0071DF'
         size={20}
       />
     )
@@ -54,7 +54,7 @@ export default function CardUsers({ item, users, setUsers }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(180deg, #1D2766, #727fda)',
+      background: 'linear-gradient(180deg, #FFFFFF, #727fda)',
     }
   }
 

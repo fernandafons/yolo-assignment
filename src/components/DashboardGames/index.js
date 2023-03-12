@@ -3,13 +3,13 @@ import ReactModal from 'react-modal';
 import { DatePicker } from '@mui/x-date-pickers';
 import SearchIcon from '@mui/icons-material/Search';
 
-import SearchBar from "../SearchBar";
 import CardGames from "../CardGames";
 import AddModal from "../AddModal";
 
 import {
   Container,
   Header,
+  SearchBar,
   BoxCards,
   AddButton,
   AddButtonText,
@@ -44,13 +44,9 @@ export default function DashboardGames({ data, setGames }) {
   };
 
   const handleSearch = () => {
-    console.log('data', data);
-    // console.log('endAt', endAt);
     updatedList = data.filter((item) => {
-      console.log('endAt', Date.parse(item.created_at) > startAt);
       return Date.parse(item.created_at) >= startAt && Date.parse(item.created_at) <= endAt;
     });
-    console.log('jesus', updatedList)
     setFilteredList(updatedList);
   }
 
@@ -62,7 +58,6 @@ export default function DashboardGames({ data, setGames }) {
   useEffect(() => {
     setFilteredList(data)
   }, [data])
-  // todo: treat case in which user change dashboard with data in the input area.
 
   const ModalStyles = {
     content: {
@@ -71,15 +66,14 @@ export default function DashboardGames({ data, setGames }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(180deg, #1D2766, #727fda)',
+      background: 'linear-gradient(180deg, #FFFFFF, #727fda)',
     }
   }
-  // todo: ver se transforma o header em um componente
-  console.log('dateFilter', dateFilter)
+
   return (
       <Container>
         <Header>
-          <SearchBar filter={filter}/>
+          <SearchBar placeholder='Search by Category' onChange={(event) => filter(event)}/>
           <AddButton onClick={openModal} >
             <AddButtonText>+</AddButtonText>
           </AddButton>
@@ -93,13 +87,13 @@ export default function DashboardGames({ data, setGames }) {
         <>
           <DateSearch>
             <DatePicker 
-              label='Start date'
+              // label='Start date'
               value={startAt}
               onChange={(event) => setStartAt(event)} 
             />
             <Text>-</Text>
             <DatePicker 
-              label='End date'
+              // label='End date'
               value={endAt}
               onChange={(event) => setEndAt(event)} 
               minDate={startAt}

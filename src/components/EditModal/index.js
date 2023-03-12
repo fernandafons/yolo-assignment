@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
-import { TextField } from '@mui/material';
-import dayjs from "dayjs";
+import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from './styles';
 
 import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 import { editGames } from '../../services/games';
@@ -11,12 +10,13 @@ import { editGames } from '../../services/games';
 const EditModal = ({ item, data, setGames, setVisible }) => {
   const userDashboard = useContext(UserDashboardContext);
 
-  const [newName, setNewName] = useState(item.name)
-  const [newCategory, setNewCategory] = useState(item.category)
-  // console.log('item.created_at', item.created_at)
-  const [newCreatedAt, setNewCreatedAt] = useState(null)
+  const [newName, setNewName] = useState(item.name);
+  const [newCategory, setNewCategory] = useState(item.category);
+  const [newCreatedAt, setNewCreatedAt] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleEdit = async() => {
+    setLoading(true);
     try {
       if (!userDashboard) {
         const newValue = {
@@ -32,6 +32,7 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
     } catch (error) {
       console.log("error message", error);
     }
+    setLoading(false);
   }
 
   return (
@@ -58,14 +59,14 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
             label={item.created_at}
             value={newCreatedAt}
             onChange={(event) => setNewCreatedAt(event)} 
-            slots={{
-              textField: Input,
-            }}
+            sx={{height: '10%'}}
           />
         </BoxInput>
       </BoxForms>
-      {/* botar loading */}
-      <AddButton onClick={() => handleEdit()}>Edit {item.name}</AddButton>
+      <EditButton onClick={handleEdit}>
+        {!loading && `Edit ${item.name}`}
+        {loading && <CircularProgress size={20}/>}
+      </EditButton>
     </Container>
   )
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-import { Container } from './styles';
+import { Container, BoxLoading } from './styles';
 import DashboardController from '../../components/DashboardController';
+import { CircularProgress } from "@mui/material";
 
 import { getUsers } from "../../services/users";
 import { getGames } from "../../services/games";
@@ -24,7 +25,6 @@ const MainPage = () => {
     try {
       const response = await getUsers();
       setUsers(response);
-      // console.log(response);
     } catch (error) {
       // todo tratar isso aq
       console.log("error message")
@@ -34,7 +34,6 @@ const MainPage = () => {
   const handleGetGames = async() => {
     try {
       const response = await getGames();
-      // console.log(response);
       setGames(response);
       setDashboardData(response)
     } catch (error) {
@@ -85,7 +84,11 @@ const MainPage = () => {
             />
             // colocar loading
         }
-        {/* <Loading/ > material */}
+        {!games && !users &&
+          <BoxLoading>
+            <CircularProgress />
+          </BoxLoading>
+        }
       </Container>
     </UserDashboardContext.Provider>
   );

@@ -1,15 +1,18 @@
 export const Theme = {
   colors: {
-    darkBlue: "#1D2766",
-    blue: "#243189",
+    darkBlue: "#0071DF",
+    blue: "#60A8FF",
     red: "#E51C44",
-    white: "#DDE3F0",
+    white: "#FFFFFF",
     green: "#32BD50",
+    gray: "#F2F2F2",
+    black: "#000000",
+    yellow: "#b7CEF3",
   },
   sizes: {
-    big: "25px",
-    regular: "18px",
-    small: "15px",
+    big: "24px",
+    regular: "20px",
+    small: "16px",
   },
 }
 

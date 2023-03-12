@@ -6,12 +6,13 @@ export const Container = styled.div`
   flex-direction: column;
   height: 90vh;
   width: 350px;
-  background-color: ${props => props.theme.colors.blue };
+  background-color: ${props => props.theme.colors.gray };
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
   border-top-left-radius: 10px;
 `;
+
 export const Header = styled.div`
   display: flex;
   width: 85%;
@@ -19,6 +20,17 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 20px 10px;
+`;
+
+export const SearchBar = styled.input`
+  display: flex;
+  height: 40px;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  background-color: ${props => props.theme.colors.white};
+  padding: 0 10px;
+  margin-right: 10px;
 `;
 
 export const BoxCards =  styled.div`
@@ -41,7 +53,7 @@ export const AddButton = styled.button`
   display: flex;
   height: 40px;
   width: 40px;
-  background-color: ${props => props.theme.colors.red};
+  background-color: ${props => props.theme.colors.yellow};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -53,6 +65,6 @@ export const AddButton = styled.button`
 `;
 
 export const AddButtonText = styled.text`
-  color: ${props => props.theme.colors.white };
+  color: ${props => props.theme.colors.blue };
   font-size: ${props => props.theme.sizes.regular};
 `;

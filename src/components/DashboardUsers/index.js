@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 
-import SearchBar from "../SearchBar";
 import CardUsers from "../CardUsers";
 import AddModalUsers from "../AddModalUsers";
 
 import {
   Container,
   Header,
+  SearchBar,
   BoxCards,
   AddButton,
   AddButtonText,
@@ -37,7 +37,6 @@ export default function DashboardUsers({ title, setUsers, userDashboard, users }
   useEffect(() => {
     setFilteredList(users)
   }, [users])
-  // todo: treat case in which user change dashboard with data in the input area.
 
   const ModalStyles = {
     content: {
@@ -46,14 +45,14 @@ export default function DashboardUsers({ title, setUsers, userDashboard, users }
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(180deg, #1D2766, #727fda)',
+      background: 'linear-gradient(180deg, #FFFFFF, #727fda)',
     }
   }
 
   return (
     <Container>
       <Header>
-        <SearchBar filter={filter}/>
+        <SearchBar placeholder='Search by Name' onChange={(event) => filter(event)}/>
         <AddButton onClick={() => openModal()}>
           <AddButtonText>+</AddButtonText>
         </AddButton>

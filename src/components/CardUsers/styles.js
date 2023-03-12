@@ -15,7 +15,7 @@ export const BoxText = styled.div`
 `;
 
 export const Title = styled.text`
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
   font-size: ${props => props.theme.sizes.regular};
   font-weight: bold;
   margin: 10px 0px;
@@ -30,7 +30,7 @@ export const BoxDataText = styled.div`
 `;
 
 export const DataText = styled.text`
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
   font-size: ${props => props.theme.sizes.small};
   margin-bottom: 5px;
   `;

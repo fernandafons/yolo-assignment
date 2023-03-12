@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CircularProgress } from "@mui/material";
 
 import { deleteUsers } from '../../services/users';
-import { Container, Title, BoxForms, BoxInput, Text, AddButton } from './styles';
+import { Container, Title, BoxForms, BoxInput, Text, DeleteButton } from './styles';
 
 const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
+  const [loading, setLoading] = useState(false);
 
   const handleDelete = async() => {
+    setLoading(true);
     try {
       const response = await deleteUsers(users, item);
       setUsers(response)
@@ -13,6 +16,7 @@ const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
     } catch (error) {
       console.log('Error', error);
     }
+    setLoading(false);
   }
 
   return (
@@ -23,7 +27,10 @@ const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
           <Text>Are you sure you want to delete {item.name}?</Text>
         </BoxInput>
       </BoxForms>
-      <AddButton onClick={handleDelete}>Yes</AddButton>
+      <DeleteButton onClick={handleDelete}>
+        {!loading && 'Yes'}
+        {loading && <CircularProgress size={20}/>}
+      </DeleteButton>
     </Container>
   )
 }

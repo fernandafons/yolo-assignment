@@ -25,7 +25,7 @@ export default function CardGames({ item, data, setGames }) {
   const trashButton = () => {
     return (
       <BsTrash
-        color='#32BD50'
+        color='#0071DF'
         size={20}
       />
     )
@@ -54,10 +54,10 @@ export default function CardGames({ item, data, setGames }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(180deg, #1D2766, #727fda)',
+      background: 'linear-gradient(180deg, #FFFFFF, #727fda)',
     }
   }
-  // console.log(typeof item.created_at)
+  
   const date = new Date(item.created_at)
   const formatedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 

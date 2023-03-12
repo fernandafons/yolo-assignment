@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from './styles';
 
 import { editUsers } from '../../services/users';
 
@@ -9,8 +10,10 @@ const EditModalUsers = ({ item, users, setUsers, setVisible }) => {
   const [newName, setNewName] = useState(item.name);
   const [newEmail, setNewEmail] = useState(item.email);
   const [newAddress, setNewAddress] = useState(item.address);
+  const [loading, setLoading] = useState(false);
 
   const handleEdit = async() => {
+    setLoading(true);
     try {
         const newValue = {
           id: item.id,
@@ -24,6 +27,7 @@ const EditModalUsers = ({ item, users, setUsers, setVisible }) => {
     } catch (error) {
       console.log("error message", error);
     }
+    setLoading(false);
   }
 
   return (
@@ -52,8 +56,10 @@ const EditModalUsers = ({ item, users, setUsers, setVisible }) => {
           />
         </BoxInput>
       </BoxForms>
-      {/* botar loading */}
-      <AddButton onClick={() => handleEdit()}>Edit {item.name}</AddButton>
+      <EditButton onClick={handleEdit}>
+        {!loading && `Edit ${item.name}`}
+        {loading && <CircularProgress size={20}/>}
+      </EditButton>
     </Container>
   )
 }

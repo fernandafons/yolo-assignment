@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Title = styled.text`
   font-size: ${props => props.theme.sizes.big};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
 `;
 
 export const BoxForms = styled.div`
@@ -27,7 +27,7 @@ export const BoxInput = styled.div`
 
 export const Text = styled.text`
   font-size: ${props => props.theme.sizes.regular};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
 `;
 
 /* check responsiviness */
@@ -44,14 +44,19 @@ export const AddButton = styled.button`
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: ${props => props.theme.colors.red};
+  background-color: ${props => props.theme.colors.yellow};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   border: none;
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.darkBlue};
+  font-weight: bold;
   :hover {
     opacity: 0.8;
     cursor: pointer;
   }
+  `;
+
+export const AddButtonText = styled.text`
+
 `;

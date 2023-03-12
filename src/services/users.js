@@ -18,14 +18,6 @@ export const deleteUsers = async(currentUsers, selectedData) => {
 }
 
 export const addUsers = async(currentUsers, newData) => {
-  console.log('newData', newData);
   await new Promise(response => setTimeout(response, 1000))
   return [...currentUsers, newData];
 }
-
-
-// return filter-id enviado
-// edit, importa, pega oq foi editado, retorna tudo + oq foi editado
-// a gente a promisse para poder transpformar o settimeout em 
-// sicrono e assim usar o await, para simular a chamada de uma api
-

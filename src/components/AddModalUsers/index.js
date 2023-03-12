@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CircularProgress } from "@mui/material";
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
 
@@ -8,8 +9,10 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleAdd = async() => {
+    setLoading(true);
     try {
       const id = users.length >1 ? users[users.length-1].id+1 : 1;
       const newValue = {
@@ -24,6 +27,7 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
     } catch (error) {
       console.log("error message", error);
     }
+    setLoading(false);
   }
   return (
     <Container>
@@ -51,7 +55,10 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
           />
         </BoxInput>
       </BoxForms>
-      <AddButton onClick={handleAdd}>Add new User</AddButton>
+      <AddButton onClick={handleAdd}>
+        {!loading && 'Add new User'}
+        {loading && <CircularProgress size={20}/>}
+      </AddButton>
     </Container>
   )
 }
