@@ -58,6 +58,9 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
             label={item.created_at}
             value={newCreatedAt}
             onChange={(event) => setNewCreatedAt(event)} 
+            slots={{
+              textField: Input,
+            }}
           />
         </BoxInput>
       </BoxForms>

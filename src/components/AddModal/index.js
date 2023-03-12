@@ -50,6 +50,9 @@ const AddModal = ({ setVisible, data, setGames }) => {
             label={'Choose date'}
             value={createdAt}
             onChange={(event) => setCreatedAt(event)} 
+            slots={{
+              textField: Input,
+            }}
           />
         </BoxInput>
       </BoxForms>

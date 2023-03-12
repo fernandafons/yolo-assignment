@@ -38,7 +38,7 @@ export default function DashboardGames({ data, setGames }) {
   const filter = (event) => {
     const query = event.target.value;
     updatedList = updatedList.filter((item) => {
-      return item['name'].toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      return item['category'].toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
     setFilteredList(updatedList);
   };
@@ -102,6 +102,7 @@ export default function DashboardGames({ data, setGames }) {
               label='End date'
               value={endAt}
               onChange={(event) => setEndAt(event)} 
+              minDate={startAt}
             />
             <BoxIcon onClick={handleSearch}>
               <SearchIcon />
