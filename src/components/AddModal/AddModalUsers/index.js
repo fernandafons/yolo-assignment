@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from './styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from '../styles';
 
-import { addUsers } from '../../services/users';
+import { addUsers } from '../../../services/users';
 
 const AddModalUsers = ({ setVisible, users, setUsers }) => {
   const [name, setName] = useState('');

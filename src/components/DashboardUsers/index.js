@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 
 import CardUsers from "../CardUsers";
-import AddModalUsers from "../AddModalUsers";
+import AddModalUsers from "../AddModal/AddModalUsers";
 
 import {
   Container,

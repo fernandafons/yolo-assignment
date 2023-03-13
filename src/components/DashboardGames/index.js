@@ -4,7 +4,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 import SearchIcon from '@mui/icons-material/Search';
 
 import CardGames from "../CardGames";
-import AddModal from "../AddModal";
+import AddModalGames from "../AddModal/AddModalGames";
 
 import {
   Container,
@@ -112,7 +112,7 @@ export default function DashboardGames({ data, setGames }) {
       <CardGames key={item.id} item={item} data={data} setGames={setGames} />)}
         </BoxCards>
         <ReactModal isOpen={visible} onRequestClose={closeModal} style={ModalStyles}>
-          <AddModal 
+          <AddModalGames 
             setVisible={setVisible} 
             data={data} 
             setGames={setGames} 

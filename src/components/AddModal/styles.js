@@ -14,7 +14,7 @@ export const Title = styled.text`
   color: ${props => props.theme.colors.black};
 `;
 
-export const BoxForms = styled.div`
+export const BoxForms = styled.form`
 `;
 
 export const BoxInput = styled.div`
@@ -49,14 +49,9 @@ export const AddButton = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  color: ${props => props.theme.colors.darkBlue};
-  font-weight: bold;
+  color: ${props => props.theme.colors.black};
   :hover {
     opacity: 0.8;
     cursor: pointer;
   }
-  `;
-
-export const AddButtonText = styled.text`
-
 `;
