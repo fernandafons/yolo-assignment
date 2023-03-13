@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   height: 140px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #3b3c3c;
   justify-content: space-between;
   margin: 0 20px;
 `;

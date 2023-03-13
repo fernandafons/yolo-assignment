@@ -53,7 +53,7 @@ export const AddButton = styled.button`
   display: flex;
   height: 40px;
   width: 40px;
-  background-color: ${props => props.theme.colors.yellow};
+  background-color: ${props => props.theme.colors.blue};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -65,6 +65,6 @@ export const AddButton = styled.button`
 `;
 
 export const AddButtonText = styled.text`
-  color: ${props => props.theme.colors.blue };
+  color: ${props => props.theme.colors.white };
   font-size: ${props => props.theme.sizes.regular};
 `;

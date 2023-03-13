@@ -37,6 +37,7 @@ const EditModalUsers = ({ item, users, setUsers, setVisible }) => {
         <BoxInput>
           <Text>Name: </Text>
           <Input 
+            autoFocus
             value={newName} 
             onChange={(event) => setNewName(event.target.value)} 
           />

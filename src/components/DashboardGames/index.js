@@ -66,7 +66,7 @@ export default function DashboardGames({ data, setGames }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(180deg, #FFFFFF, #727fda)',
+      background: 'linear-gradient(90deg, #999999, #bcbcbc)',
     }
   }
 

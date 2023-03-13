@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Container, GamesButton, UsersButton, ButtonText, VerticalLine } from './styles';
+import { Container, GamesButton, UsersButton, ButtonText } from './styles';
 
 
 const DashboardController = ({ setDashboardData, users, games }) => {
@@ -19,7 +19,6 @@ const DashboardController = ({ setDashboardData, users, games }) => {
         <GamesButton isSelected={gamesIsSelected} onClick={() => handleClick(games)}>
           <ButtonText isSelected={gamesIsSelected}>Games</ButtonText>
         </GamesButton>
-        {/* <VerticalLine /> */}
         <UsersButton isSelected={usersIsSelected} onClick={() => handleClick(users)}>
           <ButtonText isSelected={usersIsSelected}>Users</ButtonText>
         </UsersButton>

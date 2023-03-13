@@ -42,6 +42,7 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
         <BoxInput>
           <Text>Name:</Text>
           <Input 
+            autoFocus
             value={newName} 
             onChange={(event) => setNewName(event.target.value)} 
           />

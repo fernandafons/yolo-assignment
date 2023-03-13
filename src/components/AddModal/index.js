@@ -37,6 +37,7 @@ const AddModal = ({ setVisible, data, setGames }) => {
         <BoxInput>
           <Text>Name: </Text>
           <Input 
+            autoFocus
             placeholder='Type name' 
             onChange={(event) => setName(event.target.value)} 
           />

@@ -4,8 +4,8 @@ export const Container = styled.button`
   display: flex;
   height: 35px;
   width: 35px;
-  background-color: ${({ theme, edit }) => edit ? theme.colors.darkBlue : theme.colors.gray };
-  border: 2px solid ${props => props.theme.colors.darkBlue};
+  background-color: ${({ theme, edit }) => edit ? theme.colors.yellow : theme.colors.gray };
+  border: 2px solid ${({ theme, edit }) => edit ? theme.colors.yellow : '#1e1d15' };
   border-radius: 10px;
   justify-content: center;
   align-items: center;

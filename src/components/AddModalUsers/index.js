@@ -36,6 +36,8 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
         <BoxInput>
           <Text>Name: </Text>
           <Input 
+            required
+            autoFocus
             placeholder='Type name' 
             onChange={(event) => setName(event.target.value)} 
           />
@@ -43,6 +45,7 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
         <BoxInput>
           <Text>Email:</Text>
           <Input 
+            type={email}
             placeholder='Type email'
             onChange={(event) => setEmail(event.target.value)} 
           />
@@ -50,6 +53,7 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
         <BoxInput>
           <Text>Address:</Text>
           <Input 
+            required
             placeholder='Type address'
             onChange={(event) => setAddress(event.target.value)} 
           />
