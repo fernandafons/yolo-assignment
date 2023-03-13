@@ -31,7 +31,6 @@ export const Text = styled.text`
   color: ${props => props.theme.colors.black};
 `;
 
-/* check responsiviness */
 export const Input = styled.input`
   display: flex;
   width: 160px;

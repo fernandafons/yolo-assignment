@@ -26,8 +26,7 @@ const MainPage = () => {
       const response = await getUsers();
       setUsers(response);
     } catch (error) {
-      // todo tratar isso aq
-      console.log("error message")
+      console.log("error", error)
     }
   }
 
@@ -37,8 +36,7 @@ const MainPage = () => {
       setGames(response);
       setDashboardData(response)
     } catch (error) {
-      // todo tratar isso aq
-      console.log("error message")
+      console.log("error", error)
     }
   }
 
@@ -77,12 +75,10 @@ const MainPage = () => {
         { users && userDashboard &&
             <DashboardUsers
               title={title} 
-              // data={dashboardData} 
               userDashboard={userDashboard} 
               setUsers={setUsers}
               users={users}
             />
-            // colocar loading
         }
         {!games && !users &&
           <BoxLoading>

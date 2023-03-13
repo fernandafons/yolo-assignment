@@ -82,7 +82,10 @@ export default function DashboardGames({ data, setGames }) {
   return (
       <Container>
         <Header>
-          <SearchBar placeholder='Search by Category' onChange={(event) => filter(event)}/>
+          <SearchBar 
+            placeholder='Search by Category' 
+            onChange={(event) => filter(event)}
+          />
           <AddButton onClick={openModal} >
             <AddButtonText>+</AddButtonText>
           </AddButton>
@@ -96,13 +99,13 @@ export default function DashboardGames({ data, setGames }) {
         <>
           <DateSearch>
             <DatePicker 
-              // label='Start date'
+              label='Start'
               value={startAt}
               onChange={(event) => setStartAt(event)} 
             />
             <Text>-</Text>
             <DatePicker 
-              // label='End date'
+              label='End'
               value={endAt}
               onChange={(event) => setEndAt(event)} 
               minDate={startAt}

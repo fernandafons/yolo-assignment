@@ -13,7 +13,7 @@ import {
   AddButtonText,
 } from "../styles";
 
-export default function DashboardUsers({ title, setUsers, userDashboard, users }) {
+export default function DashboardUsers({ setUsers, users }) {
   const [visible, setVisible] = useState(false);
   const [filteredList, setFilteredList] = useState(users);
   let updatedList = [...users];
@@ -52,7 +52,10 @@ export default function DashboardUsers({ title, setUsers, userDashboard, users }
   return (
     <Container>
       <Header>
-        <SearchBar placeholder='Search by Name' onChange={(event) => filter(event)}/>
+        <SearchBar 
+          placeholder='Search by Name' 
+          onChange={(event) => filter(event)}
+        />
         <AddButton onClick={() => openModal()}>
           <AddButtonText>+</AddButtonText>
         </AddButton>

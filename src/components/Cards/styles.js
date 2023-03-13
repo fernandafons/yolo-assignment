@@ -37,10 +37,8 @@ export const DataText = styled.text`
 
 export const BoxButtons = styled.div`
   display: flex;
-  /* flex: 1; */
   flex-direction: column;
   width: 50px;
   height: 100%;
   justify-content: center;
-  /* background-color: red; */
 `;

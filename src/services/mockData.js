@@ -34,32 +34,32 @@ export const GAMES = [
 export const USERS = [
     {
       id: 1,
-      name: 'testy 1',
-      email: 'email 1',
+      name: 'User One',
+      email: 'one@email.com',
       address: 'address 1, street 4, block B - City and State,  block B - City and State',
     },
     {
       id: 2,
-      name: 'pppppp 2',
-      email: 'email 2',
+      name: 'User Two',
+      email: 'two@email.com',
       address: 'address 1, street 4, block B - City and State',
     },
     {
       id: 3,
-      name: 'pooop 3',
-      email: 'email 3',
+      name: 'User Three',
+      email: 'three@email.com',
       address: 'address 1, street 4, block B - City and State',
     },
     {
       id: 4,
-      name: 'nhsud 4',
-      email: 'email 4',
+      name: 'User Four',
+      email: 'four@email.com',
       address: 'address 1, street 4, block B - City and State',
     },
     {
       id: 5,
-      name: 'nnno 5',
-      email: 'email 5',
+      name: 'User Five',
+      email: 'five@email.com',
       address: 'address 1, street 4, block B - City and State',
     },
 ];

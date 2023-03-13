@@ -1,15 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { DateField } from '@mui/x-date-pickers';
+import React, { useState } from 'react';
 import { CircularProgress } from "@mui/material";
-import dayjs, { Dayjs } from 'dayjs';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton, DateInput } from '../styles';
 
-import { UserDashboardContext } from "../../../hooks/Context/Dashboard";
 import { editGames } from '../../../services/games';
 
 const EditModalGames = ({ item, data, setGames, setVisible }) => {
-  const userDashboard = useContext(UserDashboardContext);
 
   const [newName, setNewName] = useState(item.name);
   const [newCategory, setNewCategory] = useState(item.category);

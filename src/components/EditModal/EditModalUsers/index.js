@@ -25,7 +25,7 @@ const EditModalUsers = ({ item, users, setUsers, setVisible }) => {
         setUsers(response)
         setVisible(false)
     } catch (error) {
-      console.log("error message", error);
+      console.log("error", error);
     }
     setLoading(false);
   }

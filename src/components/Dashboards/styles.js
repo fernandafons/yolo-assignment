@@ -105,5 +105,4 @@ export const Text = styled.button`
   font-size: ${props => props.theme.sizes.small};
   background: none;
   border: none;
-  /* text-decoration: underline; */
 `;

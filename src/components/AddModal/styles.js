@@ -44,7 +44,6 @@ export const HelpText = styled.text`
   color: ${props => props.theme.colors.red};
 `;
 
-/* check responsiviness */
 export const Input = styled.input`
   display: flex;
   height: 35px;
