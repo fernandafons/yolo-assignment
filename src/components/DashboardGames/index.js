@@ -43,8 +43,17 @@ export default function DashboardGames({ data, setGames }) {
     setFilteredList(updatedList);
   };
 
-  const handleSearch = () => {
+  const handleSearchByDate = () => {
+    if(!startAt && !endAt){
+      return updatedList
+    }
     updatedList = data.filter((item) => {
+      if (startAt === null) {
+        return Date.parse(item.created_at) <= endAt
+      }
+      if (endAt === null) {
+        return Date.parse(item.created_at) >= startAt
+      }
       return Date.parse(item.created_at) >= startAt && Date.parse(item.created_at) <= endAt;
     });
     setFilteredList(updatedList);
@@ -98,7 +107,7 @@ export default function DashboardGames({ data, setGames }) {
               onChange={(event) => setEndAt(event)} 
               minDate={startAt}
             />
-            <BoxIcon onClick={handleSearch}>
+            <BoxIcon onClick={handleSearchByDate}>
               <SearchIcon />
             </BoxIcon>
           </DateSearch>
