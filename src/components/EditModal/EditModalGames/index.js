@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { DatePicker } from '@mui/x-date-pickers';
+import { DateField } from '@mui/x-date-pickers';
 import { CircularProgress } from "@mui/material";
+import dayjs, { Dayjs } from 'dayjs';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from '../styles';
 
@@ -15,20 +16,24 @@ const EditModalGames = ({ item, data, setGames, setVisible }) => {
   const [newCreatedAt, setNewCreatedAt] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  let formatedDate = new Date(item.created_at);
+  const month = formatedDate.getUTCMonth() + 1; //months from 1-12
+  const day = formatedDate.getUTCDate();
+  const year = formatedDate.getUTCFullYear();
+  formatedDate = day + "/" + month + "/" + year;
+
   const handleEdit = async() => {
     setLoading(true);
     try {
-      if (!userDashboard) {
-        const newValue = {
-          id: item.id,
-          name: newName,
-          category: newCategory,
-          created_at: newCreatedAt ? newCreatedAt.toString() : item.created_at,
-        }
-        const response = await editGames(data, newValue);
-        setGames(response)
-        setVisible(false)
+      const newValue = {
+        id: item.id,
+        name: newName,
+        category: newCategory,
+        created_at: newCreatedAt ? newCreatedAt.toString() : item.created_at,
       }
+      const response = await editGames(data, newValue);
+      setGames(response)
+      setVisible(false)
     } catch (error) {
       console.log("error message", error);
     }
@@ -56,8 +61,8 @@ const EditModalGames = ({ item, data, setGames, setVisible }) => {
         </BoxInput>
         <BoxInput>
           <Text>Created at:</Text>
-          <DatePicker 
-            label={item.created_at}
+          <DateField 
+            label={formatedDate}
             value={newCreatedAt}
             onChange={(event) => setNewCreatedAt(event)} 
             sx={{height: '10%'}}

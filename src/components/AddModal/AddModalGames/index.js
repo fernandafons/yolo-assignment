@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
 import { CircularProgress } from "@mui/material";
-import {TextField} from '@mui/material';
 
 import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from '../styles';
 
@@ -60,7 +59,7 @@ const AddModalGames = ({ setVisible, data, setGames }) => {
       <BoxForms>
         <BoxInput>
           <Text>Name: </Text>
-          <TextField 
+          <Input 
             autoFocus
             required
             helperText={errorMessage}
@@ -71,7 +70,7 @@ const AddModalGames = ({ setVisible, data, setGames }) => {
         </BoxInput>
         <BoxInput>
           <Text>Category:</Text>
-          <TextField 
+          <Input 
             required
             helperText={errorMessageCategory}
             error={errorCategory}

@@ -34,9 +34,16 @@ export const Text = styled.text`
 export const Input = styled.input`
   display: flex;
   width: 160px;
-  height: 28px;
+  height: 35px;
   border-radius: 5px;
   border: none;
+  color: black;
+  width: 150px;
+  padding: 0 10px;
+  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+  :focus {
+    outline: none;
+  }
 `;
 
 export const EditButton = styled.button`

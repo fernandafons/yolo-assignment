@@ -57,9 +57,12 @@ export default function CardGames({ item, data, setGames }) {
       background: 'linear-gradient(90deg, #999999, #bcbcbc)',
     }
   }
-  
-  const date = new Date(item.created_at)
-  const formatedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+
+  let formatedDate = new Date(item.created_at);
+  const month = formatedDate.getUTCMonth() + 1;
+  const day = formatedDate.getUTCDate();
+  const year = formatedDate.getUTCFullYear();
+  formatedDate = day + "/" + month + "/" + year;
 
   return (
     <Container>
