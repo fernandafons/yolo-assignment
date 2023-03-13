@@ -97,7 +97,7 @@ export const BoxIcon = styled.button`
   background: none;
   border-radius: 10px;
   border: none;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.gray};
   margin-left: 10px;
 `;
 

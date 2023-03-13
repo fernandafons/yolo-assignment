@@ -111,7 +111,7 @@ export default function DashboardGames({ data, setGames }) {
               minDate={startAt}
             />
             <BoxIcon onClick={handleSearchByDate}>
-              <SearchIcon />
+              <SearchIcon color="primary"/>
             </BoxIcon>
           </DateSearch>
           <BoxFilter onClick={handleHideFilter}>
