@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { DatePicker } from '@mui/x-date-pickers';
 import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from '../styles';
+import { 
+  Container, 
+  Title, 
+  BoxForms, 
+  BoxInput, 
+  Text, 
+  Input, 
+  AddButton, 
+  HelpText, 
+  Box, 
+  DateInput 
+} from '../styles';
 
 import { addGames } from '../../../services/games';
 
@@ -13,24 +23,26 @@ const AddModalGames = ({ setVisible, data, setGames }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorCategory, setErrorCategory] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [errorMessageCategory, setErrorMessageCategory] = useState('');
+  const [errorDate, setErrorDate] = useState('');
+  const errorMessage = 'This field is required';
 
   const handleAdd = async() => {
     if (name === '') {
       setError(true);
-      setErrorMessage("This field is required");
       return;
     }
     if (category === '') {
       setErrorCategory(true);
-      setErrorMessageCategory("This field is required");
+      return;
+    }
+    if (createdAt === '') {
+      setErrorDate(true);
       return;
     }
 
     setLoading(true);
     try {
-      const id = data.length >1 ? data[data.length-1].id+1 : 1;
+      const id = data.length > 1 ? data[data.length-1].id+1 : 1;
       const newValue = {
         id: id,
         name: name,
@@ -49,43 +61,49 @@ const AddModalGames = ({ setVisible, data, setGames }) => {
   useEffect(() => {
     setError(false);
     setErrorCategory(false);
-    setErrorMessage('');
-    setErrorMessageCategory('');
-  }, [name, category]);
+    setErrorDate(false)
+  }, [name, category, createdAt]);
 
   return (
     <Container>
       <Title>Add Game</Title>
       <BoxForms>
-        <BoxInput>
-          <Text>Name: </Text>
-          <Input 
-            autoFocus
-            required
-            helperText={errorMessage}
-            error={error}
-            placeholder='Type name' 
-            onChange={(event) => setName(event.target.value)} 
-          />
-        </BoxInput>
-        <BoxInput>
-          <Text>Category:</Text>
-          <Input 
-            required
-            helperText={errorMessageCategory}
-            error={errorCategory}
-            placeholder='Type category'
-            onChange={(event) => setCategory(event.target.value)} 
-          />
-        </BoxInput>
-        <BoxInput>
-          <Text>Created at:</Text>
-          <DatePicker 
-            label={'Choose date'}
-            value={createdAt}
-            onChange={(event) => setCreatedAt(event)} 
-          />
-        </BoxInput>
+        <Box>
+          <BoxInput>
+            <Text>Name: </Text>
+              <Input 
+                autoFocus
+                required
+                error={error}
+                placeholder='Type name' 
+                onChange={(event) => setName(event.target.value)} 
+              />
+          </BoxInput>
+          {error && <HelpText>{errorMessage}</HelpText>}
+        </Box>
+        <Box>
+          <BoxInput>
+            <Text>Category:</Text>
+            <Input 
+              required
+              error={errorCategory}
+              placeholder='Type category'
+              onChange={(event) => setCategory(event.target.value)} 
+            />
+          </BoxInput>
+          {errorCategory && <HelpText>{errorMessage}</HelpText>}
+        </Box>
+        <Box>
+          <BoxInput>
+            <Text>Date:</Text>
+            <DateInput 
+              label={'Choose date'}
+              value={createdAt}
+              onChange={(event) => setCreatedAt(event)} 
+            />
+          </BoxInput>
+          {errorDate && <HelpText>{errorMessage}</HelpText>}
+        </Box>
       </BoxForms>
       <AddButton onClick={handleAdd} >
         {!loading && 'Add new Game'}

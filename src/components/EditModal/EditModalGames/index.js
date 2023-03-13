@@ -60,7 +60,7 @@ const EditModalGames = ({ item, data, setGames, setVisible }) => {
           />
         </BoxInput>
         <BoxInput>
-          <Text>Created at:</Text>
+          <Text>Date:</Text>
           <DateField 
             label={formatedDate}
             value={newCreatedAt}

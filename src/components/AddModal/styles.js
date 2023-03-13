@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DatePicker } from '@mui/x-date-pickers';
 
 export const Container = styled.div`
   display: flex;
@@ -19,10 +20,18 @@ export const BoxForms = styled.form`
 
 export const BoxInput = styled.div`
   display: flex;
-  margin-bottom: 15px;
   width: 270px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3px;
+`;
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
 `;
 
 export const Text = styled.text`
@@ -30,10 +39,14 @@ export const Text = styled.text`
   color: ${props => props.theme.colors.black};
 `;
 
+export const HelpText = styled.text`
+  font-size: 11px;
+  color: ${props => props.theme.colors.red};
+`;
+
 /* check responsiviness */
 export const Input = styled.input`
   display: flex;
-  width: 160px;
   height: 35px;
   border-radius: 5px;
   border: none;
@@ -61,3 +74,12 @@ export const AddButton = styled.button`
     cursor: pointer;
   }
 `;
+
+export const DateInput = styled(DatePicker)`
+&&{
+  display: flex;
+  width: 170px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+}`;
