@@ -12,8 +12,11 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
   const [loading, setLoading] = useState(false);
   const [errorName, setErrorName] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const [errorAddress, setErrorAddress] = useState('');
   const errorMessage = 'This field is required';
+  const invalidEmailMessage = 'Invalid email address';
+  const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
   const handleAdd = async() => {
     if (name === '') {
@@ -24,10 +27,15 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
       setErrorEmail(true);
       return;
     }
+    if (!EMAIL_REGEX.test(email)) {
+      setInvalidEmail(true);
+      return;
+    }
     if (address === '') {
       setErrorAddress(true);
       return;
     }
+    
     setLoading(true);
     try {
       const id = users.length >1 ? users[users.length-1].id+1 : 1;
@@ -49,7 +57,8 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
   useEffect(() => {
     setErrorName(false);
     setErrorEmail(false);
-    setErrorAddress(false)
+    setErrorAddress(false);
+    setInvalidEmail(false);
   }, [name, email, address]);
 
 
@@ -79,6 +88,7 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
             />
           </BoxInput>
           {errorEmail && <HelpText>{errorMessage}</HelpText>}
+          {invalidEmail && <HelpText>{invalidEmailMessage}</HelpText>}
         </Box>
         <Box>
           <BoxInput>

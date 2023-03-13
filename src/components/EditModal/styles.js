@@ -20,7 +20,7 @@ export const BoxForms = styled.div`
 
 export const BoxInput = styled.div`
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 3px;
   width: 270px;
   justify-content: space-between;
   align-items: center;
@@ -70,3 +70,16 @@ export const DateInput = styled(DatePicker)`
   border-radius: 5px;
   border: none;
 }`;
+
+export const HelpText = styled.text`
+  font-size: 11px;
+  color: ${props => props.theme.colors.red};
+`;
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+`;

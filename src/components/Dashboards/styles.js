@@ -12,6 +12,7 @@ export const Container = styled.div`
   align-items: center;
   margin: 0 25px;
   border-top-right-radius: 10px;
+  box-shadow: 0 5px 5px 0px rgb(96, 168, 255, .5);
   ${media.lessThan('712px')`
     width: 100vw;
   `}
