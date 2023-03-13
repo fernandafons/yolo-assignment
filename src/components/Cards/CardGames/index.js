@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 
-import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from './styles';
-import Button from '../Button';
-import EditModalUsers from '../EditModalUsers';
-import DeleteModalUsers from '../DeleteModalUsers';
+import { Container, Title, BoxDataText, BoxText, DataText, BoxButtons } from '../styles';
+import Button from '../../Button';
+import EditModalGames from '../../EditModal/EditModalGames';
+import DeleteModalGames from '../../DeleteModal/DeleteModalGames';
 
 import { BiEditAlt } from 'react-icons/bi';
 import { BsTrash } from 'react-icons/bs';
 
-export default function CardUsers({ item, users, setUsers }) {
+export default function CardGames({ item, data, setGames }) {
   const [visible, setVisible] = useState(false);
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
 
@@ -57,14 +57,17 @@ export default function CardUsers({ item, users, setUsers }) {
       background: 'linear-gradient(90deg, #999999, #bcbcbc)',
     }
   }
+  
+  const date = new Date(item.created_at)
+  const formatedDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 
   return (
     <Container>
       <BoxText>
         <Title>{item.name}</Title>
         <BoxDataText>
-          <DataText>{item.email}</DataText>
-          <DataText>{item.address}</DataText>
+          <DataText>{item.category}</DataText>
+          <DataText>{formatedDate}</DataText>
         </BoxDataText>
       </BoxText>
       <BoxButtons>
@@ -76,24 +79,14 @@ export default function CardUsers({ item, users, setUsers }) {
         onRequestClose={closeModal} 
         style={ModalStyles}
       >
-        <EditModalUsers 
-          item={item} 
-          users={users} 
-          setUsers={setUsers} 
-          setVisible={setVisible}
-        />
+        <EditModalGames item={item} data={data} setGames={setGames} setVisible={setVisible}/>
       </ReactModal>
       <ReactModal 
         isOpen={deleteModalVisible} 
         onRequestClose={closeDeleteModal} 
         style={ModalStyles}
       >
-        <DeleteModalUsers 
-          users={users} 
-          setUsers={setUsers} 
-          item={item} 
-          setDeleteModalVisible={setDeleteModalVisible} 
-        />
+        <DeleteModalGames data={data} setGames={setGames} item={item} setDeleteModalVisible={setDeleteModalVisible} />
       </ReactModal>
     </Container>
   )

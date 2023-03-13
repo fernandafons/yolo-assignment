@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react';
 import { DatePicker } from '@mui/x-date-pickers';
 import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from './styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from '../styles';
 
-import { UserDashboardContext } from "../../hooks/Context/Dashboard";
-import { editGames } from '../../services/games';
+import { UserDashboardContext } from "../../../hooks/Context/Dashboard";
+import { editGames } from '../../../services/games';
 
-const EditModal = ({ item, data, setGames, setVisible }) => {
+const EditModalGames = ({ item, data, setGames, setVisible }) => {
   const userDashboard = useContext(UserDashboardContext);
 
   const [newName, setNewName] = useState(item.name);
@@ -72,4 +72,4 @@ const EditModal = ({ item, data, setGames, setVisible }) => {
   )
 }
 
-export default EditModal;
+export default EditModalGames;

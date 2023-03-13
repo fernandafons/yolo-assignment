@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { CircularProgress } from "@mui/material";
 
-import { deleteUsers } from '../../services/users';
-import { Container, Title, BoxForms, BoxInput, Text, DeleteButton } from './styles';
+import { deleteGames } from '../../../services/games';
+import { Container, Title, BoxForms, BoxInput, Text, DeleteButton } from '../styles';
 
-const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
+const DeleteModalGames = ({ item, data, setGames, setDeleteModalVisible }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async() => {
     setLoading(true);
     try {
-      const response = await deleteUsers(users, item);
-      setUsers(response)
+      const response = await deleteGames(data, item);
+      setGames(response)
       setDeleteModalVisible(false)
     } catch (error) {
-      console.log('Error', error);
+      console.log('error', error);
     }
     setLoading(false);
   }
@@ -35,4 +35,4 @@ const DeleteModalUsers = ({ item, users, setUsers, setDeleteModalVisible }) => {
   )
 }
 
-export default DeleteModalUsers;
+export default DeleteModalGames;

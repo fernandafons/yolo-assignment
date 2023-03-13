@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import { DatePicker } from '@mui/x-date-pickers';
 import SearchIcon from '@mui/icons-material/Search';
 
-import CardGames from "../CardGames";
+import CardGames from "../Cards/CardGames";
 import AddModalGames from "../AddModal/AddModalGames";
 
 import {
