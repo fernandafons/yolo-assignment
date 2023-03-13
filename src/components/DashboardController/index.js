@@ -12,6 +12,7 @@ const DashboardController = ({ setDashboardData, users, games }) => {
     setGamesIsSelected(!gamesIsSelected);
     setUsersIsSelected(!usersIsSelected);
   }
+  console.log('gamesIsSelected', gamesIsSelected);
 
   return (
     <>

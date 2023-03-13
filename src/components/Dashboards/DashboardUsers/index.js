@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 
-import CardUsers from "../Cards/CardUsers";
-import AddModalUsers from "../AddModal/AddModalUsers";
+import CardUsers from "../../Cards/CardUsers";
+import AddModalUsers from "../../AddModal/AddModalUsers";
 
 import {
   Container,
@@ -11,7 +11,7 @@ import {
   BoxCards,
   AddButton,
   AddButtonText,
-} from "./styles";
+} from "../styles";
 
 export default function DashboardUsers({ title, setUsers, userDashboard, users }) {
   const [visible, setVisible] = useState(false);
@@ -45,7 +45,7 @@ export default function DashboardUsers({ title, setUsers, userDashboard, users }
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(90deg, #999999, #bcbcbc)',
+      backgroundColor: '#F2F2F2',
     }
   }
 

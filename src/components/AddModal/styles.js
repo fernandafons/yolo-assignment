@@ -53,7 +53,7 @@ export const Input = styled.input`
   color: black;
   width: 150px;
   padding: 0 10px;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+  box-shadow: 0 3px 5px 2px rgb(96, 168, 255, .3);
   :focus {
     outline: none;
   }
@@ -63,12 +63,12 @@ export const AddButton = styled.button`
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: ${props => props.theme.colors.yellow};
+  background-color: ${props => props.theme.colors.darkBlue};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   border: none;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
   :hover {
     opacity: 0.8;
     cursor: pointer;

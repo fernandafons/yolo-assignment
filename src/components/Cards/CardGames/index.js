@@ -25,7 +25,7 @@ export default function CardGames({ item, data, setGames }) {
   const trashButton = () => {
     return (
       <BsTrash
-        color='#1e1d15'
+        color='#6d6b5f'
         size={20}
       />
     )
@@ -54,7 +54,7 @@ export default function CardGames({ item, data, setGames }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(90deg, #999999, #bcbcbc)',
+      backgroundColor: '#F2F2F2',
     }
   }
 

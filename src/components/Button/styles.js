@@ -5,11 +5,12 @@ export const Container = styled.button`
   height: 40px;
   width: 40px;
   background-color: ${({ theme, edit }) => edit ? theme.colors.blue : theme.colors.gray };
-  border: 2px solid ${({ theme, edit }) => edit ? theme.colors.blue : '#1e1d15' };
+  border: 2px solid ${({ theme, edit }) => edit ? theme.colors.blue : '#6d6b5f' };
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin: 5px;
+  box-shadow: 0 3px 5px 0px rgb(109, 107, 95, .8);
   
   :hover {
     opacity: 0.8;

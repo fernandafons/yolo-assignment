@@ -37,12 +37,12 @@ export const DeleteButton = styled.button`
   display: flex;
   height: 40px;
   width: 200px;
-  background-color: ${props => props.theme.colors.yellow};
+  background-color: ${props => props.theme.colors.darkBlue};
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   border: none;
-  color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.white};
   :hover {
     opacity: 0.8;
     cursor: pointer;

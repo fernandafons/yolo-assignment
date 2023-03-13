@@ -6,8 +6,8 @@ import { CircularProgress } from "@mui/material";
 
 import { getUsers } from "../../services/users";
 import { getGames } from "../../services/games";
-import DashboardUsers from '../../components/DashboardUsers';
-import DashboardGames from '../../components/DashboardGames';
+import DashboardUsers from '../../components/Dashboards/DashboardUsers';
+import DashboardGames from '../../components/Dashboards/DashboardGames';
 import { UserDashboardContext } from "../../hooks/Context/Dashboard";
 
 const MainPage = () => {

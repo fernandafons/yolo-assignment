@@ -30,7 +30,7 @@ export const BoxDataText = styled.div`
 `;
 
 export const DataText = styled.text`
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.lightBlack};
   font-size: ${props => props.theme.sizes.small};
   margin-bottom: 5px;
   `;

@@ -6,8 +6,8 @@ export const Theme = {
     white: "#FFFFFF",
     green: "#32BD50",
     gray: "#F2F2F2",
-    black: "#3e3c32",
-    yellow: "#ffe100",
+    black: "#51504c",
+    lightBlack: "#6d6b5f"
   },
   sizes: {
     big: "2rem",

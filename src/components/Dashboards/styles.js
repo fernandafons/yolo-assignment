@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   height: 90vh;
   width: 350px;
-  background-color: ${props => props.theme.colors.gray };
+  background-color: ${props => props.theme.colors.white };
   justify-content: flex-start;
   align-items: center;
   margin: 0 25px;
@@ -32,7 +32,7 @@ export const SearchBar = styled.input`
   width: 80%;
   border: none;
   border-radius: 5px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.gray};
   padding: 0 10px;
   margin-right: 10px;
 `;

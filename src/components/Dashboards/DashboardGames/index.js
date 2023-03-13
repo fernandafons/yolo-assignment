@@ -3,8 +3,8 @@ import ReactModal from 'react-modal';
 import { DatePicker } from '@mui/x-date-pickers';
 import SearchIcon from '@mui/icons-material/Search';
 
-import CardGames from "../Cards/CardGames";
-import AddModalGames from "../AddModal/AddModalGames";
+import CardGames from "../../Cards/CardGames";
+import AddModalGames from "../../AddModal/AddModalGames";
 
 import {
   Container,
@@ -17,7 +17,7 @@ import {
   Text,
   DateSearch,
   BoxIcon,
-} from "./styles";
+} from "../styles";
 
 export default function DashboardGames({ data, setGames }) {
   const [visible, setVisible] = useState(false);
@@ -75,7 +75,7 @@ export default function DashboardGames({ data, setGames }) {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      background: 'linear-gradient(90deg, #999999, #bcbcbc)',
+      backgroundColor: '#F2F2F2',
     }
   }
 

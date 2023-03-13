@@ -17,7 +17,7 @@ export const GamesButton = styled.button`
   border-top-left-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-top-right-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-bottom-right-radius: ${({ isSelected}) => isSelected ? '0' : '15px'};
-  background: ${({ isSelected}) => isSelected ? `${props => props.theme.colors.gray}` : 'transparent'};
+  background: ${({ isSelected}) => isSelected ? `white` : `${props => props.theme.colors.gray}`};
 `;
 
 export const UsersButton = styled.button`
@@ -27,7 +27,7 @@ export const UsersButton = styled.button`
   border-top-left-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-top-right-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-bottom-left-radius: ${({ isSelected}) => isSelected ? '0' : '15px'};
-  background: ${({ isSelected}) => isSelected ? `${props => props.theme.colors.gray}` : 'transparent'};
+  background: ${({ isSelected}) => isSelected ? `white` : `${props => props.theme.colors.gray}`};
 `;
 
 export const ButtonText = styled.text`
