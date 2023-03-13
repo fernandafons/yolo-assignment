@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CircularProgress } from "@mui/material";
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton } from '../styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, AddButton, Box, HelpText } from '../styles';
 
 import { addUsers } from '../../../services/users';
 
@@ -10,8 +10,24 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorName, setErrorName] = useState(false);
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorAddress, setErrorAddress] = useState('');
+  const errorMessage = 'This field is required';
 
   const handleAdd = async() => {
+    if (name === '') {
+      setErrorName(true);
+      return;
+    }
+    if (email === '') {
+      setErrorEmail(true);
+      return;
+    }
+    if (address === '') {
+      setErrorAddress(true);
+      return;
+    }
     setLoading(true);
     try {
       const id = users.length >1 ? users[users.length-1].id+1 : 1;
@@ -29,35 +45,52 @@ const AddModalUsers = ({ setVisible, users, setUsers }) => {
     }
     setLoading(false);
   }
+
+  useEffect(() => {
+    setErrorName(false);
+    setErrorEmail(false);
+    setErrorAddress(false)
+  }, [name, email, address]);
+
+
   return (
     <Container>
       <Title>Add User</Title>
       <BoxForms>
-        <BoxInput>
-          <Text>Name: </Text>
-          <Input 
-            required
-            autoFocus
-            placeholder='Type name' 
-            onChange={(event) => setName(event.target.value)} 
-          />
-        </BoxInput>
-        <BoxInput>
-          <Text>Email:</Text>
-          <Input 
-            type={email}
-            placeholder='Type email'
-            onChange={(event) => setEmail(event.target.value)} 
-          />
-        </BoxInput>
-        <BoxInput>
-          <Text>Address:</Text>
-          <Input 
-            required
-            placeholder='Type address'
-            onChange={(event) => setAddress(event.target.value)} 
-          />
-        </BoxInput>
+        <Box>
+          <BoxInput>
+            <Text>Name: </Text>
+            <Input 
+              required
+              autoFocus
+              placeholder='Type name' 
+              onChange={(event) => setName(event.target.value)} 
+            />
+          </BoxInput>
+          {errorName && <HelpText>{errorMessage}</HelpText>}
+        </Box>
+        <Box>
+          <BoxInput>
+            <Text>Email:</Text>
+            <Input 
+              type={email}
+              placeholder='Type email'
+              onChange={(event) => setEmail(event.target.value)} 
+            />
+          </BoxInput>
+          {errorEmail && <HelpText>{errorMessage}</HelpText>}
+        </Box>
+        <Box>
+          <BoxInput>
+            <Text>Address:</Text>
+            <Input 
+              required
+              placeholder='Type address'
+              onChange={(event) => setAddress(event.target.value)} 
+            />
+          </BoxInput>
+          {errorAddress && <HelpText>{errorMessage}</HelpText>}
+        </Box>
       </BoxForms>
       <AddButton onClick={handleAdd}>
         {!loading && 'Add new User'}

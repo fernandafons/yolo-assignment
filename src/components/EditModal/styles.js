@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DatePicker } from '@mui/x-date-pickers';
 
 export const Container = styled.div`
   display: flex;
@@ -61,3 +62,12 @@ export const EditButton = styled.button`
     cursor: pointer;
   }
 `;
+
+export const DateInput = styled(DatePicker)`
+&&{
+  display: flex;
+  width: 170px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+}`;

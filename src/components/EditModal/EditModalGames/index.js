@@ -3,7 +3,7 @@ import { DateField } from '@mui/x-date-pickers';
 import { CircularProgress } from "@mui/material";
 import dayjs, { Dayjs } from 'dayjs';
 
-import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton } from '../styles';
+import { Container, Title, BoxForms, BoxInput, Text, Input, EditButton, DateInput } from '../styles';
 
 import { UserDashboardContext } from "../../../hooks/Context/Dashboard";
 import { editGames } from '../../../services/games';
@@ -61,11 +61,10 @@ const EditModalGames = ({ item, data, setGames, setVisible }) => {
         </BoxInput>
         <BoxInput>
           <Text>Date:</Text>
-          <DateField 
+          <DateInput 
             label={formatedDate}
             value={newCreatedAt}
             onChange={(event) => setNewCreatedAt(event)} 
-            sx={{height: '10%'}}
           />
         </BoxInput>
       </BoxForms>
