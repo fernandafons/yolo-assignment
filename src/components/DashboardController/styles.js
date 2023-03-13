@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
   width: 350px;
   background: transparent;
-  `;
+  ${media.lessThan('712px')`
+    width: 100vw;
+  `}
+`;
 
 export const GamesButton = styled.button`
   width: 50%;

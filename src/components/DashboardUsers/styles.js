@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 export const Container = styled.div`
   display: flex;
@@ -11,6 +12,9 @@ export const Container = styled.div`
   align-items: center;
   margin: 0 25px;
   border-top-left-radius: 10px;
+  ${media.lessThan('712px')`
+    width: 100vw;
+  `}
 `;
 
 export const Header = styled.div`
@@ -53,7 +57,7 @@ export const AddButton = styled.button`
   display: flex;
   height: 40px;
   width: 40px;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${props => props.theme.colors.darkBlue};
   border-radius: 10px;
   justify-content: center;
   align-items: center;

@@ -10,9 +10,9 @@ export const Theme = {
     yellow: "#ffe100",
   },
   sizes: {
-    big: "24px",
-    regular: "20px",
-    small: "16px",
+    big: "2rem",
+    regular: "1.4rem",
+    small: "1.2rem",
   },
 }
 

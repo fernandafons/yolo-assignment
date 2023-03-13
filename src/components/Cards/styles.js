@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 140px;
   border-bottom: 1px solid #3b3c3c;
   justify-content: space-between;
-  margin: 0 20px;
+  align-items: center;
+  margin: 10px 20px;
 `;
 
 export const BoxText = styled.div`
@@ -24,7 +24,7 @@ export const Title = styled.text`
 export const BoxDataText = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-right: 5px;
   justify-content: space-around;
   height: 100%;
 `;
@@ -37,8 +37,10 @@ export const DataText = styled.text`
 
 export const BoxButtons = styled.div`
   display: flex;
+  /* flex: 1; */
   flex-direction: column;
   width: 50px;
   height: 100%;
   justify-content: center;
+  /* background-color: red; */
 `;
