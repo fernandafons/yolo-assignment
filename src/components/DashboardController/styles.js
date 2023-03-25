@@ -10,23 +10,13 @@ export const Container = styled.div`
   `}
 `;
 
-export const GamesButton = styled.button`
+export const Button = styled.button`
   width: 50%;
   height: 60px;
   border: none;
   border-top-left-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-top-right-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
   border-bottom-right-radius: ${({ isSelected}) => isSelected ? '0' : '15px'};
-  background: ${({ isSelected}) => isSelected ? `white` : `${props => props.theme.colors.gray}`};
-`;
-
-export const UsersButton = styled.button`
-  width: 50%;
-  height: 60px;
-  border: none;
-  border-top-left-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
-  border-top-right-radius: ${({ isSelected}) => isSelected ? '10px' : '0'};
-  border-bottom-left-radius: ${({ isSelected}) => isSelected ? '0' : '15px'};
   background: ${({ isSelected}) => isSelected ? `white` : `${props => props.theme.colors.gray}`};
 `;
 

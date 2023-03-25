@@ -1,27 +1,43 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
-import { Container, GamesButton, UsersButton, ButtonText } from './styles';
+import { Container, Button, ButtonText } from './styles';
 
+import { useNavigate } from 'react-router-dom';
+import { StateContext } from '../../hooks/Context/Dashboard';
 
-const DashboardController = ({ setDashboardData, users, games }) => {
-  const [gamesIsSelected, setGamesIsSelected] = useState(true);
-  const [usersIsSelected, setUsersIsSelected] = useState(false);
+const DashboardController = () => {
+  const { 
+    usersIsSelected, 
+    setUsersIsSelected, 
+    gamesIsSelected, 
+    setGamesIsSelected 
+  } = useContext(StateContext);
 
-  function handleClick(item) {
-    setDashboardData(item);
-    setGamesIsSelected(!gamesIsSelected);
-    setUsersIsSelected(!usersIsSelected);
-  }
+  const navigate = useNavigate();
+
+  function handleClick(dashboardName) {
+    if (dashboardName === 'users') {
+      setUsersIsSelected(true);
+      setGamesIsSelected(false);
+      navigate('/users');
+    } else {
+      setUsersIsSelected(false);
+      setGamesIsSelected(true);
+      navigate('/games');
+    }
+    console.log('gamesIsSelected', gamesIsSelected);
+    console.log('usersIsSelected', usersIsSelected);
+  };
 
   return (
     <>
       <Container>
-        <GamesButton isSelected={gamesIsSelected} onClick={() => handleClick(games)}>
+        <Button isSelected={gamesIsSelected} onClick={() => handleClick('games')}>
           <ButtonText isSelected={gamesIsSelected}>Games</ButtonText>
-        </GamesButton>
-        <UsersButton isSelected={usersIsSelected} onClick={() => handleClick(users)}>
+        </Button>
+        <Button isSelected={usersIsSelected} onClick={() => handleClick('users')}>
           <ButtonText isSelected={usersIsSelected}>Users</ButtonText>
-        </UsersButton>
+        </Button>
       </Container>
     </>
   )

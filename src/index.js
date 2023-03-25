@@ -5,12 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from "styled-components";
 import Theme from './styles/Theme';
+import { BrowserRouter } from 'react-router-dom';
+import { StateProvider } from './hooks/Context/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <App />
+    <ThemeProvider theme={Theme}> 
+      <BrowserRouter>
+        <StateProvider>
+          <App />
+        </StateProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );
